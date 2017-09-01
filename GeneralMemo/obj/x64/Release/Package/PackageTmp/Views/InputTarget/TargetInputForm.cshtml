@@ -1,0 +1,242 @@
+﻿@model MarketersTarget_MVC.Models.SuperInputTargetModel
+
+@{
+    ViewBag.Title = "Target Input Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.User = "Welcome " + Request.LogonUserIdentity.Name.Substring(Request.LogonUserIdentity.Name.LastIndexOf(@"\") + 1) + "!";
+    ViewBag.InitiatorName = Request.LogonUserIdentity.Name.Substring(Request.LogonUserIdentity.Name.LastIndexOf(@"\") + 1);
+    ViewBag.InitiatorNumber = "";
+    WebGrid grid        = new WebGrid(Model.RequestDetails, canPage: false);
+    WebGrid apprvlgrid  = new WebGrid(Model.ApprovalDetails, canPage: false);
+}
+
+<h4>@ViewBag.Title - @Model.RequestBranch</h4>
+
+<hr />
+
+<p>@ViewBag.ErrorMessage</p>
+
+<div class="stf_optionsContainer">
+    <div class="row">
+        <div class="col-md-12">
+
+            <section id="form">
+                @using (Html.BeginForm("TargetInputForm", "InputTarget", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" , i="3" })) {
+
+                    @Html.HiddenFor( m => m.WorkflowID      )
+                    @Html.HiddenFor( m => m.RequestStage    )
+                    @Html.HiddenFor( m => m.RequestStageID  )
+                    @Html.HiddenFor( m => m.RequestDate     )
+
+                    //StaffADProfile
+                    @Html.HiddenFor( m => m.StaffADProfile.user_logon_name  )
+                    @Html.HiddenFor( m => m.StaffADProfile.employee_number  )
+                    @Html.HiddenFor( m => m.StaffADProfile.branch_name      )
+                    @Html.HiddenFor( m => m.StaffADProfile.branch_code      )
+                    @Html.HiddenFor( m => m.StaffADProfile.hodeptcode       )
+                    @Html.HiddenFor( m => m.StaffADProfile.hodeptname       )
+                    @Html.HiddenFor( m => m.StaffADProfile.appperiod        )
+                    
+                    //EntryModel
+                    @Html.HiddenFor(m => m.EntryModel.WorkflowID            )
+                    @Html.HiddenFor(m => m.EntryModel.StaffNumber           )
+                    @Html.HiddenFor(m => m.EntryModel.StaffName             )
+                    @Html.HiddenFor(m => m.EntryModel.Branch                )
+                    @Html.HiddenFor(m => m.EntryModel.BranchCode            )
+                    @Html.HiddenFor(m => m.EntryModel.DeptName              )
+                    @Html.HiddenFor(m => m.EntryModel.DeptCode              )
+                    @Html.HiddenFor(m => m.EntryModel.AppraisalPeriod       )
+                    @Html.HiddenFor(m => m.EntryModel.AppraisalPeriodName   )
+                    @Html.HiddenFor(m => m.EntryModel.RequestStage          )
+                    @Html.HiddenFor(m => m.EntryModel.RequestStageId        )
+                    @Html.HiddenFor(m => m.EntryModel.UploadStatus          )
+                    @Html.HiddenFor(m => m.EntryModel.DateSubmitted         )
+                    @*@Html.HiddenFor(m => m.EntryModel.Approvers           )*@
+                    @Html.HiddenFor(m => m.EntryModel.Action                )
+
+
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <!--For Deletion of Staff-->
+                    <input name="TargetAction" type="submit" value="DeleteStaff" id="DeleteStaff" style="display:none;" />
+                    <input type="hidden" value="" name="StaffNumber" />
+
+                    string editMode = TempData["editMode"] as string;
+                    if (String.IsNullOrEmpty(editMode)) {
+
+                        <div class="form-group col-md-2 ">
+                            @Html.LabelFor(m => m.StaffADProfile.in_StaffNumber, new { @class = "control-label" })
+                            <div>
+                                @Html.TextBoxFor(m => m.StaffADProfile.in_StaffNumber, new { @class = "form-control small-textbox", onblur = "getStaffProfile(this.value)",type = "text", id = "in_StaffNumber" })
+                                @Html.ValidationMessageFor(m => m.StaffADProfile.in_StaffNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            @Html.LabelFor(m => m.StaffADProfile.in_StaffName, new { @class = "control-label" })
+                            <div>
+                                @Html.TextBoxFor(m => m.StaffADProfile.in_StaffName, new { @class = "form-control", @readonly = "readonly", type = "text", id = "in_StaffName" })
+                                @Html.ValidationMessageFor(m => m.StaffADProfile.in_StaffName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            @Html.LabelFor(m => m.StaffADProfile.in_StaffGrade, new { @class = "control-label" })
+                            <div>
+                                @Html.TextBoxFor(m => m.StaffADProfile.in_StaffGrade, new { @class = "form-control small-textbox", @readonly = "readonly", type = "text", id = "in_StaffGrade" })
+                                @Html.ValidationMessageFor(m => m.StaffADProfile.in_StaffGrade, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("*" , new { @class = "blank-text" } )
+                            <div>
+                                <input name="TargetAction" type="submit" value="AddStaff" class="btn btn-default  col-md-1" />
+                            </div>
+                        </div>
+                    }
+
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <span class='web-err'>@ViewBag.ErrorMessage</span>
+                        </div>
+                    </div>
+                    
+                    TempData["superBulkSetupModel"] = Model;
+
+                    if (Model.RequestDetails.Count() > 0) {
+
+                        ViewBag.HasGrid = true;
+                        int rowNum = 0;
+
+                        @grid.GetHtml(
+                                        tableStyle: "viewTable inputTargetGridInitiate",
+                                        fillEmptyRows: false,
+                                        headerStyle: "viewTableHeader",
+                                        footerStyle: "viewTableFooter",
+                                        mode: WebGridPagerModes.All,
+                                        columns: new[] {
+                                            grid.Column("S/NO",format: item => rowNum = rowNum + 1),
+                                            //grid.Column(null,null, format: (item) => Html.Hidden("RequestDetails[" + (rowNum - 1).ToString() + "].entry_key"
+                                            //                , (object)item.entry_key,new{@class="entry_key hidden",@readonly="readonly"}) ),
+                                            //grid.Column(format: (item) => Html.Hidden("RequestDetails[" + (rowNum - 1).ToString() + "].entry_key"
+                                            //                , (object)item.entry_key,new{@class="entry_key no-border",@readonly="readonly"}), style: "hidden"),
+                                            grid.Column("name", "NAME",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].name"
+                                                            , (object)item.name,new{@class="name no-border",@readonly="readonly"}) , style: "col2Width has-delete",canSort:false),
+                                            grid.Column("employee_number", "ID",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].employee_number"
+                                                            , (object)item.employee_number,new{@class="employee_number no-border",@readonly="readonly"}) , style: "col2Width",canSort:false),
+                                            grid.Column("grade", "GRADE",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].grade"
+                                                            , (object)item.grade,new{@class="grade no-border",@readonly="readonly"}) , style: "col2Width",canSort:false),
+                                            grid.Column("cabal", "C.A-SELF-SOURCED/REACT.",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].cabal"
+                                                            , (object)item.cabal,new{@class="edit-mode cabal tgtvals"}) , style: "col2Width",canSort:false),
+                                            grid.Column("cabal_l", "C.A/LEGACY ACCT",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].cabal_l"
+                                                            , (object)item.cabal_l,new{@class="edit-mode cabal_l tgtvals"}) , style: "col2Width",canSort:false),
+                                            grid.Column("sabal", "S.A-SELF-SOURCED/REACT.",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].sabal"
+                                                            , (object)item.sabal,new{@class="edit-mode sabal tgtvals"}) , style: "col2Width",canSort:false),
+                                            grid.Column("sabal_l", "S.A-LEGACY ACCT",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].sabal_l"
+                                                            , (object)item.sabal_l,new{@class="edit-mode sabal_l tgtvals"}) , style: "col2Width",canSort:false),
+                                            grid.Column("fx", "FX $(DAS)",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].fx"
+                                                            , (object)item.fx,new{@class="edit-mode fx tgtvals"}) , style: "col2Width",canSort:false),
+                                            grid.Column("rv", "REV. COLL. (N)",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].rv"
+                                                            , (object)item.rv,new{@class="edit-mode rv tgtvals"}) , style: "col2Width",canSort:false),
+                                            grid.Column("fd", "AVG FIXED/CALL DEP. (N)",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].fd"
+                                                            , (object)item.fd,new{@class="edit-mode fd tgtvals"}) , style: "col2Width",canSort:false),
+                                            grid.Column("inc", "INCOME-SELF-SOURCED/REACT.",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].inc"
+                                                            , (object)item.inc,new{@class="edit-mode inc tgtvals"}) , style: "col2Width",canSort:false),
+                                            grid.Column("inc_l", "INCOME LEGACY ACCT",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].inc_l"
+                                                            , (object)item.inc_l,new{@class="edit-mode inc_l tgtvals"}) , style: "col2Width",canSort:false)
+                                        })
+                    } else {
+                        <p>Nothing to display</p>
+                        ViewBag.HasGrid = null;
+                    }
+                    <br/>
+
+                    if (String.IsNullOrEmpty(editMode)) {
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                @if ( Model.EntryModel==null ) { 
+                                    <input name="TargetAction" type="submit" id="Save" value="Save" class="btn btn-default  col-md-1" />
+                                    <input name="TargetAction" type="submit" id="Reset" value="Reset" class="btn btn-default col-md-offset-1 col-md-1" />
+                                } else {
+                                    <input name="TargetAction" type="submit" id="Deny" value="Deny" class="btn btn-default col-md-offset-1 col-md-1" />
+                                }
+                                <input name="TargetAction" type="submit" id="Submit" value="Submit" class="btn btn-default col-md-offset-1 col-md-1" />
+                            </div>
+                        </div>
+                    }
+
+                }
+            </section>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        function setPeriod(period) {
+            //alert($("#" + period + " option:selected").text())
+            $("#SetupAppPeriod").val($("#" + period + " option:selected").text());
+        };
+        /*function setBranch(branchname) {
+            //alert($("#" + branchname + " option:selected").text())
+            $("#SetupBranch").val($("#" + branchname + " option:selected").text());
+        };*/
+        /*function getStaffProfile(staffnumber) {
+
+            var StaffNumber = "";
+            var StaffName   = "";
+            var StaffGrade  = "";
+
+            $.ajax({
+                type: "POST",
+                url: "/HRSetup/GetStaffProfile",
+                traditional: true,
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ StaffNumber: staffnumber }),
+                success: function (data) {
+
+                    var StaffName="";
+
+                    if (data[0]==undefined || data[0]==null) {
+                        StaffName   = data.name;
+                        StaffNumber = data.employee_number;
+                        StaffGrade = data.grade_code;
+
+                        $("#StaffName").val("");
+                        $("#StaffNumber").val("");
+                        $("#StaffGrade").val("");
+
+                        $(".web-err").html(StaffNumber + "_" + StaffName);
+
+                    } else {
+                        StaffName   = data[0].name;
+                        StaffNumber = data[0].employee_number;
+                        StaffGrade = data[0].grade_code;
+
+                        $("#StaffName").val(StaffName);
+                        $("#StaffNumber").val(StaffNumber);
+                        $("#StaffGrade").val(StaffGrade);
+
+                        $(".web-err").html("");
+                    }
+
+                }, error: function (data) {
+                    //console.log(data)
+                }
+            });
+        }*/
+    </script>
+</div>
+

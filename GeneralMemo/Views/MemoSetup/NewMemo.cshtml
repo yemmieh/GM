@@ -1,0 +1,483 @@
+﻿@using System.Xml
+@using GeneralMemo.Models
+@model GeneralMemo.Models.MemoSetup
+
+    
+@{
+    ViewBag.Title = "New Memo";
+    ViewBag.LoggedInUser = @User.Identity.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>@ViewBag.Title</h4>
+
+<hr />
+
+@{
+    if (ViewBag.ErrorMessage != null && ViewBag.ErrorMessage != "") {
+        <p class="err-alert "><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>&nbsp;&nbsp;@ViewBag.ErrorMessage</p>
+    }
+}
+
+<div class="stf_optionsContainer">
+    <div class="row">
+        <div class="col-md-12">
+
+            <section id="form">
+
+                @using (Html.BeginForm("NewMemo", "MemoSetup", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" })) {
+
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    @Html.HiddenFor(m => m.OriginatorName, new { id = "OriginatorName" })
+                    @Html.HiddenFor(m => m.OriginatorNumber, new { id = "OriginatorNumber" })
+                    @Html.HiddenFor(m => m.WorkflowID, new { id = "WorkflowID" })
+                    @Html.HiddenFor(m => m.EntryKey, new { id = "EntryKey" })
+                    @Html.HiddenFor(m => m.Branch, new { id = "Branch" })
+                    @Html.HiddenFor(m => m.BranchCode, new { id = "BranchCode" })
+                    @Html.HiddenFor(m => m.DeptName, new { id = "SetupAppPeriod" })
+                    @Html.HiddenFor(m => m.DeptCode, new { id = "SetupBranch" })
+                    @Html.HiddenFor(m => m.UnitName, new { id = "SetupDept" })
+                    @Html.HiddenFor(m => m.UnitCode, new { id = "SetupDept" })
+                    @Html.HiddenFor(m => m.RequestStage, new { id = "RequestStage" })
+                    @Html.HiddenFor(m => m.RequestStageId, new { id = "RequestStageId" })
+                    @Html.HiddenFor(m => m.DateSubmitted, new { id = "DateSubmitted" })
+                    @Html.HiddenFor(m => m.Action, new { id = "Action" })
+
+                    //StaffADProfile
+                    @Html.HiddenFor(m => m.StaffADProfile.user_logon_name)
+                    @Html.HiddenFor(m => m.StaffADProfile.employee_number)
+                    @Html.HiddenFor(m => m.StaffADProfile.grade)
+                    @Html.HiddenFor(m => m.StaffADProfile.branch_name)
+                    @Html.HiddenFor(m => m.StaffADProfile.branch_code)
+                    @Html.HiddenFor(m => m.StaffADProfile.hodeptcode)
+                    @Html.HiddenFor(m => m.StaffADProfile.hodeptname)
+                    @Html.HiddenFor(m => m.StaffADProfile.appperiod)
+
+                    //SignerDetails
+                    /*@Html.HiddenFor(m => m.SignerDetails.ApproverStaffNumber)
+                    @Html.HiddenFor(m => m.SignerDetails.ApproverStaffName)
+                    @Html.HiddenFor(m => m.SignerDetails.ApproverGrade)
+                    @Html.HiddenFor(m => m.SignerDetails.ApproverDept)
+                    @Html.HiddenFor(m => m.SignerDetails.GradeID)
+                    @Html.HiddenFor(m => m.SignerDetails.PayGroup_ID)*/
+
+                    bool editMode       = ViewBag.editMode ?? true;
+                    string @disabled    = " disabled ";
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.From, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor( m => m.From, ( ViewBag.editMode != true ) ? (object) new { @class = "form-control ", id = "From", @disabled } :new { @class = "form-control ", id = "From" } )
+                            @Html.ValidationMessageFor(m => m.From, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.To, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(m => m.To, (ViewBag.editMode != true) ? (object)new { @class = "form-control ", id = "To", @disabled } : new { @class = "form-control ", id = "To" })
+                            @Html.ValidationMessageFor(m => m.To, "", new { @class = "text-danger" })
+                        </div>
+                        @Html.LabelFor(m => m.Attn, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(m => m.Attn, (ViewBag.editMode != true) ? (object)new { @class = "form-control ", id = "Attn", @disabled } : new { @class = "form-control ", id = "Attn" })
+                            @Html.ValidationMessageFor(m => m.Attn, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.DateOfMemo, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.DateOfMemo, (ViewBag.editMode != true) ? (object)new { @class = "form-control datefield datepicker datebox from_date from ", id = "DateOfMemo", @disabled, type = "datetime" } : new { @class = "form-control datefield datepicker datebox from_date from ", id = "DateOfMemo", type = "datetime" })
+                            @Html.ValidationMessageFor(m => m.DateOfMemo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Subject, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.Subject, (ViewBag.editMode != true) ? (object)new { @class = "form-control ", id = "Subject", @disabled } : new { @class = "form-control ", id = "Subject" })
+                            @Html.ValidationMessageFor(m => m.Subject, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <hr />
+                    
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.MemoBody, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextAreaFor(m => m.MemoBody, (ViewBag.editMode != true) ? (object)new { @class = "form-control form-control rich-text tinymce", id = "MemoBody", @disabled } : new { @class = "form-control form-control rich-text tinymce", id = "MemoBody" })
+                            @Html.ValidationMessageFor(m => m.MemoBody, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <hr />
+                    
+                    if ( editMode == true ) {
+                        <div class="form-group">
+                            <div class="col-md-3 col-md-offset-2">
+                                @Html.LabelFor(m => m.SignerDetails.ApproverStaffName, new { @class = "control-label" })
+                                <div>
+                                    @Html.TextBoxFor(m => m.SignerDetails.ApproverStaffName, new { @class = "form-control name-search", type = "text", id = "ApproverStaffName", placeholder = "First three characters of the name", value=""})
+                                    @Html.ValidationMessageFor(m => m.SignerDetails.ApproverStaffName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            @Html.HiddenFor(m => m.SignerDetails.ApproverStaffNumber, new { id = "ApproverStaffNumber" })
+                            @Html.HiddenFor(m => m.SignerDetails.GradeID, new { id = "GradeID" })
+                            @Html.HiddenFor(m => m.SignerDetails.PayGroup_ID, new { id = "PayGroup_ID" })
+                            <!--
+                            <div class="form-group col-md-2">
+                                @Html.LabelFor(m => m.SignerDetails.ApproverStaffNumber, new { @class = "control-label" })
+                                <div>
+                                    @Html.TextBoxFor(m => m.SignerDetails.ApproverStaffNumber, new { @class = "form-control ", type = "text", id = "ApproverStaffNumber" })
+                                    @Html.ValidationMessageFor(m => m.SignerDetails.ApproverStaffNumber, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            -->                        
+                            <div class="form-group col-md-3 col-md-offset-1">
+                                @Html.LabelFor(m => m.SignerDetails.ApproverGrade, new { @class = "control-label" })
+                                <div>
+                                    @Html.TextBoxFor(m => m.SignerDetails.ApproverGrade, new { @class = "form-control  ", type = "text", id = "ApproverGrade", autocomplete = "off" })
+                                    @Html.ValidationMessageFor(m => m.SignerDetails.ApproverGrade, "", new { @class = "text-danger" })
+                                </div>
+                            </div>                        
+                            <div class="form-group col-md-3 col-md-offset-1">
+                                @Html.LabelFor(m => m.SignerDetails.ApproverDept, new { @class = "control-label" })
+                                <div>
+                                    @Html.TextBoxFor(m => m.SignerDetails.ApproverDept, new { @class = "form-control  ", type = "text", id = "ApproverDept", autocomplete = "off", value="" })
+                                    @Html.ValidationMessageFor(m => m.SignerDetails.ApproverDept, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-md-offset-2">
+                            <div class="form-group col-md-12">
+                                <button type="submit" name="MemoAction" id="AddSignatory" value="AddSignatory" class="btn btn-default add-more">
+                                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;&nbsp;Add New Signatory
+                                </button>
+                            </div>
+                        </div>
+                    }
+
+                    <!--For Deletion of Signatory-->
+                    <input name="MemoAction" type="submit" value="DeleteSignatory" id="DeleteSignatory" style="display:none;" />
+                    <input type="hidden" value="" name="StaffNumber" />
+                    /* Load the Signer List here */
+                    if (Model.SignerDetailsList != null && Model.SignerDetailsList.Count > 0) {
+                        <div class="row ">
+                            <table class='viewTable signatoryList'>
+                                <tr><td style="font-weight:600;font-size:1em;text-transform:uppercase;border:none;">Memo Approvers</td></tr>
+                                <tr class="viewTableHeader"><th>S/NO</th><th>NAME</th><th>DESIGNATION</th><th>DEPARTMENT</th>
+                                @if (@editMode == true /*&& CanDelete==true*/) {
+                                    <th>DELETE</th>
+                                }
+                                </tr>
+                                @{
+                                    var idx = 1;
+                                    foreach (var signerDetails in Model.SignerDetailsList) {
+                                        @Html.HiddenFor(m => Model.SignerDetailsList[idx - 1].ApproverStaffName)
+                                                @Html.HiddenFor(m => Model.SignerDetailsList[idx - 1].ApproverStaffNumber)
+                                                @Html.HiddenFor(m => Model.SignerDetailsList[idx - 1].ApproverGrade)
+                                                @Html.HiddenFor(m => Model.SignerDetailsList[idx - 1].ApproverDept)
+                                                @Html.HiddenFor(m => Model.SignerDetailsList[idx - 1].GradeID)
+                                                @Html.HiddenFor(m => Model.SignerDetailsList[idx - 1].PayGroup_ID)
+                                                <tr>
+                                                    <td>@idx</td>
+                                                    <td>@signerDetails.ApproverStaffName</td>
+                                                    <td>@signerDetails.ApproverGrade</td>
+                                                    <td>@signerDetails.ApproverDept</td>
+                                                    @if ( @editMode == true /*&& CanDelete==true*/ ) {
+                                                        <td><span class="glyphicon glyphicon-trash" aria-hidden="true" staffname="@signerDetails.ApproverStaffName" staffnumber="@signerDetails.ApproverStaffNumber"></span></td>
+                                                    }
+                                                </tr>
+                                        idx++;
+                                    }
+                                }
+                            </table>
+                        </div>
+                    }
+                    
+                    if ( editMode == true ) {
+                        <div class="row top-buffer">
+                            <hr />
+                            <div class="row">
+                                <div class=" col-md-3 col-md-offset-2 ">
+                                    @Html.LabelFor(m => m.Comments, new { @class = "control-label" })
+                                    <div>
+                                        @Html.TextBoxFor(m => m.Comments, new { @class = "form-control  ", type = "text", id = "Comments", autocomplete = "off" })
+                                        @Html.ValidationMessageFor(m => m.Comments, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-offset-1">
+                                    @Html.Label("*", new { @class = "blank-text" })
+                                    @if (editMode == true) {
+                                        <div>
+                                            @if (Model != null && (Model.RequestStageId == 0 || Model.RequestStageId == -1)) {
+                                                <input name="MemoAction" type="submit" id="Save" value="Save" class="btn btn-default col-md-1" />
+                                                <input name="MemoAction" type="submit" id="Reset" value="Reset" class="btn btn-default col-md-1" />
+                                            } else {
+                                                <input name="MemoAction" type="submit" id="Deny" value="Deny" class="btn btn-default col-md-1" />
+                                            }
+                                            <input name="MemoAction" type="submit" id="Submit" value="Submit" class="btn btn-default col-md-1" />
+                                        </div>
+                                    }
+                                    </div>
+
+                                </div>
+                            </div>
+                        }
+                    }
+
+                </section>
+            </div>
+        </div>
+
+        <script src="~/Scripts/tinymce/jquery.tinymce.min.js"></script>
+        <script type="text/javascript">
+
+            var tform = document.forms[0];
+
+            $(document).ready(function () {
+
+                var ApproverStaffName   = $('#ApproverStaffName');
+                var ApproverGrade       = $('#ApproverGrade');
+                var ApproverDept        = $('#ApproverDept');
+                var ApproverStaffNumber = $('#ApproverStaffNumber');
+                var GradeID             = $('#GradeID');
+                var PayGroup_ID         = $('#PayGroup_ID');
+
+                ApproverStaffName.autocomplete({
+                    source: function (request, response) {
+                        $.ajax({
+                            url: "/MemoSetup/TagSearch",
+                            dataType: 'json',
+                            data: request,
+                            success: function (data) {
+                                //console.log(data);
+                                response(data.map(function (value) {
+                                    return {
+                                        'label': value.ApproverStaffName,
+                                        'ApproverStaffName': value.ApproverStaffName,
+                                        'ApproverStaffNumber': value.ApproverStaffNumber,
+                                        'ApproverGrade': value.ApproverGrade,
+                                        'ApproverDept': value.ApproverDept,
+                                        'GradeID': value.GradeID,
+                                        'PayGroup_ID': value.PayGroup_ID,
+                                        'value':value.ApproverStaffName
+                                    };
+                                }));
+                            }
+                        });
+                    },
+                    minLength: 2,
+                    change: function (event, ui) {
+                        if ( ui.item == null || ui.item == undefined ) {
+                            editBoxes(false, null);
+                        } else {
+                            editBoxes(true, ui.item );
+                        }
+                    }
+                });
+
+                function editBoxes( flag, obj_ ) {
+                    if( flag ){
+                        ApproverStaffName.val( obj_.ApproverStaffName );
+                        ApproverStaffNumber.val(obj_.ApproverStaffNumber);
+                        ApproverGrade.val(obj_.ApproverGrade);
+                        ApproverDept.val(obj_.ApproverDept);
+                        GradeID.val(obj_.GradeID);
+                        PayGroup_ID.val(obj_.PayGroup_ID);
+                    } else {
+                        ApproverStaffName.val("");
+                        ApproverStaffNumber.val("");
+                        ApproverGrade.val("");
+                        ApproverDept.val("");
+                        GradeID.val("");
+                        PayGroup_ID.val("");
+                    }
+                }
+
+                jQuery.validator.methods.date = function (value, element) {
+                    var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+                    if (isChrome) {
+                        var d = new Date();
+                        return this.optional(element) || !/Invalid|NaN/.test(new Date(d.toLocaleDateString(value)));
+                    } else {
+                        return this.optional(element) || !/Invalid|NaN/.test(new Date(value));
+                    }
+                };
+                showdatebox($(".datebox"));
+
+                function showdatebox(v) {
+
+                    v = v || $(".datebox");
+
+                    var MAXDATE = "1M +0D";
+                    var MINDATE = "-0M +0D";
+                    v.not(" .from , .to ").datepicker({
+                        dateFormat: DATEFT,
+                        //beforeShowDay: noWeekendsOrHolidays,
+                        maxDate: MAXDATE,
+                        minDate: MINDATE,
+                        showOtherMonths: true,
+                        selectOtherMonths: true,
+                        changeMonth: true,
+                        yearRange: "-200+0",
+                        changeYear: true
+                    });
+
+                    if ($(".from").length > 0) {
+
+                        var MAXDATE = "48M +0D";
+                        var MINDATE = "-0M +0D";
+                        var DATEFT = "DD MM d, yy";
+
+                        $(".from").datepicker({
+                            dateFormat: DATEFT,
+                            maxDate: MAXDATE,
+                            minDate: MINDATE,
+                            changeMonth: true,
+                            changeYear: true,
+                            /*onClose: function( selectedDate ) {
+                                $("#"+$(this).attr("id")+"_1").datepicker( "option", "minDate", selectedDate );
+                            },*/
+                            onSelect: function (selectedDate) {
+                                $("#" + $(this).attr("id") + "_1").datepicker("option", "minDate", selectedDate);
+                            }
+                        });
+
+                        /*$(".to").datepicker({
+                            dateFormat: DATEFT,
+                            maxDate: MAXDATE,
+                            minDate: MINDATE,
+                            changeMonth: true,
+                            changeYear: true,
+                            onSelect: function (selectedDate) {
+                                $("#" + $(this).attr("id").replace("_1", "")).datepicker("option", "maxDate", selectedDate);
+                            }
+                        });*/
+                    }
+                }
+            })
+
+            function setPeriod(period) {
+                //alert($("#" + period + " option:selected").text())
+                $("#SetupAppPeriod").val($("#" + period + " option:selected").text());
+            };
+            function setBranch(branchname,val) {
+                $("#SetupBranch").val($("#" + branchname + " option:selected").text());
+                if (val == "001") {
+                    $("#HODeptName option:eq(1)").prop("disabled", true);
+                    $("#HODeptName option:gt(1)").prop("disabled", false);
+                } else {
+                    $("#HODeptName option:eq(1)").prop("disabled", false);
+                    $("#HODeptName option:gt(1)").prop("disabled", true);
+                }
+
+                $("#HODeptName").val([]);
+
+            };
+            function setDept(deptname) {
+                //alert($("#" + branchname + " option:selected").text())
+                $("#SetupDept").val($("#" + deptname + " option:selected").text());
+            };
+            //alert()
+            function getStaffProfileSingle(staffnumber) {
+
+                //alert(staffnumber);
+
+                var StaffNumber = "";
+                var StaffName   = "";
+                var StaffGrade  = "";
+
+                $.ajax({
+                    type: "POST",
+                    //url: "../HRSetup/GetStaffProfile",
+                    url: '@Url.Action("GetStaffProfile", "HRSetup")',
+                    traditional: true,
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({ StaffNumber: staffnumber }),
+                    success: function (data) {
+
+                        var StaffName="";
+
+                        if (data[0]==undefined || data[0]==null) {
+                            StaffName   = data.name;
+                            StaffNumber = data.employee_number;
+                            StaffGrade = data.grade_code;
+
+                            $("#StaffName").val("");
+                            $("#StaffNumber").val("");
+                            $("#StaffGrade").val("");
+
+                            $(".web-err").html(StaffNumber + "_" + StaffName);
+
+                        } else {
+                            StaffName   = data[0].name;
+                            StaffNumber = data[0].employee_number;
+                            StaffGrade = data[0].grade_code;
+
+                            $("#StaffName").val(StaffName);
+                            $("#StaffNumber").val(StaffNumber);
+                            $("#StaffGrade").val(StaffGrade);
+
+                            $(".web-err").html("");
+                        }
+
+                    }, error: function (data) {
+                        //console.log(data)
+                    }
+                });
+            }
+
+            $(".glyphicon-trash").on("click", function (e) {
+
+                var StaffNumber = $(this).attr('staffnumber');
+                var StaffName = $(this).attr('staffname');
+
+                if (confirm("Delete this entry / " + StaffName + "?")) {
+                    tform.StaffNumber.value = StaffNumber;
+                    $("#DeleteSignatory").trigger("click");
+                } else {
+                    tform.StaffNumber.value = "";
+                }
+            });
+
+            @{
+                int editmode = ViewBag.editMode==false ? 1 : 0;
+            }
+            $(function() {
+                $('textarea.tinymce').tinymce({
+                    //General options
+                    readonly: @editmode,
+                    script_url: "/Scripts/tinymce/tinymce.min.js",
+                    //script_url: "/Scripts/tinymce/tinymce.gzip.js",
+                    mode: "exact",
+                    elements: "mceContent",
+                    theme: "modern",
+                    skin:"lightgray",
+                    forced_root_block: false,
+                    force_br_newlines: true,
+                    force_p_newlines: false,
+
+                    plugins: [
+                                "advlist autolink lists link image anchor",
+                                "searchreplace ",
+                                "insertdatetime table paste emoticons textcolor colorpicker"
+                    ],
+
+                    menubar: 'edit format table',
+                    toolbar: ['undo redo | bold underline italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | insertdatetime emoticons | forecolor backcolor | table'],
+                    statusbar:true,
+                    height: 250,
+                    setup: function (ed) {
+                        ed.on('init', function (ed) {
+                            ed.target.editorCommands.execCommand("fontName", false, "Helvetica");
+                            ed.target.editorCommands.execCommand("fontSize", false, "10pt");
+                        });
+                    }
+                });
+            });
+    </script>
+    </div>
+

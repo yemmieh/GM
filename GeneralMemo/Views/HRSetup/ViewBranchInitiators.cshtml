@@ -1,0 +1,66 @@
+﻿@model IEnumerable<GeneralMemo.Models.BHSingleSetupModel>
+@{
+    ViewBag.Title = "Branch Initiators";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    WebGrid grid = new WebGrid(Model, rowsPerPage: 20);
+}
+
+<h4>@ViewBag.Title</h4>
+
+<hr />
+
+<div class="stf_optionsContainer">
+    <div class="row">
+        <div class="col-md-12">
+            <section id="form">
+                @using (Html.BeginForm("FilterBranchInitiators", "HRSetup", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" })) {
+
+                    <div class="form-group">
+                        <div class="col-md-2 ">
+                            @Html.Label("Search Text", new { @class = "control-label" })
+                            <div class="">
+                                @Html.TextBox("FilterBy", "", new { @class = "form-control ", type = "text", id = "FilterBy" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("*", new { @class = "blank-text" })
+                            <div>
+                                <input name="ReportAction" type="submit" value="Search" class="btn btn-default  col-md-1 col-md-offset-0" />
+                            </div>
+                        </div>
+                    </div>
+
+                    if (Model != null && Model.Count() > 0) {
+
+                        int rowNum = 0;
+                        
+                        @grid.GetHtml(
+                            tableStyle: "viewTable",
+                            fillEmptyRows: false,
+                            headerStyle: "viewTableHeader",
+                            mode: WebGridPagerModes.All,
+                            firstText: "<< First",
+                            previousText: "< Prev",
+                            nextText: "Next >",
+                            lastText: "Last >>",
+
+                            columns: new[] {
+                                grid.Column("S/NO",format: item => rowNum = rowNum + 1),
+                                grid.Column("SetupBranch","Branch Name"),
+                                grid.Column("StaffName","Staff Name"  ),
+                                grid.Column("StaffNumber","Staff Number"),
+                                grid.Column("SetupAppPeriod","Appraisal Period"),
+                                grid.Column("Comments"),
+                                grid.Column("CreateDate","Entry Date"),
+                                //grid.Column("Action",format: @<a href="~/HRSetup/BHSingleSetupFormEdit?StaffNumber=@item.StaffNumber&SelectedAppraisalPeriod=@item.SelectedAppraisalPeriod">Edit</a>)
+                                grid.Column("Action",format:(item) => Html.ActionLink("Edit", "BHSingleSetupFormEdit", "HRSetup",new { StaffNumber=@item.StaffNumber,SelectedAppraisalPeriod=@item.SelectedAppraisalPeriod},null))
+                            })
+                    } else {
+                        <p>Nothing to display for the specified criteria</p>
+                    }
+                }
+            </section>
+        </div>
+    </div>
+</div>

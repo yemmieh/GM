@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="ZenithConnectionString-Web.config Connection String" description="ZenithConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=172.29.12.174;Initial Catalog=Zenith;Persist Security Info=True;User ID=infotech;Password=infotech" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\okechukwu\.agufuobi\\documents\\visual\ studio\ 2013\\Projects\\MarketersTarget_MVC\\MarketersTarget_MVC\\obj\\x64\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ZenithConnectionString']/@connectionString" />
+  </parameter>
+  <parameter name="ZenithTgt_DemoConnectionString-Web.config Connection String" description="ZenithTgt_DemoConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=172.29.12.131;Initial Catalog=ZenithTgt_Demo;Persist Security Info=True;User ID=sa;Password=password1234" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\okechukwu\.agufuobi\\documents\\visual\ studio\ 2013\\Projects\\MarketersTarget_MVC\\MarketersTarget_MVC\\obj\\x64\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ZenithTgt_DemoConnectionString']/@connectionString" />
+  </parameter>
+  <parameter name="AppraisalDbConnectionString-Web.config Connection String" description="AppraisalDbConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=172.29.12.131;Initial Catalog=AppraisalDb;Persist Security Info=True;User ID=sa;Password=password1234" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\okechukwu\.agufuobi\\documents\\visual\ studio\ 2013\\Projects\\MarketersTarget_MVC\\MarketersTarget_MVC\\obj\\x64\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AppraisalDbConnectionString']/@connectionString" />
+  </parameter>
+  <parameter name="BranchHeadStaffProfile-Web.config Connection String" description="BranchHeadStaffProfile Connection String used in web.config by the application to access the database." defaultValue="data source=172.29.12.174;initial catalog=Zenith;persist security info=True;user id=infotech;password=infotech;MultipleActiveResultSets=True;App=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\okechukwu\.agufuobi\\documents\\visual\ studio\ 2013\\Projects\\MarketersTarget_MVC\\MarketersTarget_MVC\\obj\\x64\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BranchHeadStaffProfile']/@connectionString" />
+  </parameter>
+  <parameter name="ADConnectionString-Web.config Connection String" description="ADConnectionString Connection String used in web.config by the application to access the database." defaultValue="LDAP://africa.int.zenithbank.com:389/DC=africa,DC=int,DC=zenithbank,DC=com" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\okechukwu\.agufuobi\\documents\\visual\ studio\ 2013\\Projects\\MarketersTarget_MVC\\MarketersTarget_MVC\\obj\\x64\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ADConnectionString']/@connectionString" />
+  </parameter>
+</parameters>

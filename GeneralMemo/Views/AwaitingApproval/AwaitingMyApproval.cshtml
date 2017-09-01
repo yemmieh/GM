@@ -1,0 +1,89 @@
+﻿@model IEnumerable<GeneralMemo.Models.MyMemoEntriesModel>
+@{
+    ViewBag.Title = "Awaiting My Approval";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //ViewBag.User = "Welcome " + Request.LogonUserIdentity.Name.Substring(Request.LogonUserIdentity.Name.LastIndexOf(@"\") + 1) + "!";
+    //ViewBag.InitiatorName = Request.LogonUserIdentity.Name.Substring(Request.LogonUserIdentity.Name.LastIndexOf(@"\") + 1);
+    //ViewBag.InitiatorNumber = "";
+    WebGrid grid = new WebGrid(Model, canPage: false);    
+}
+@* The line below is crucial. It is used for showing alerts on submission/authentiation errors
+Please do not delete
+ *@
+@Html.Raw(ViewBag.PostBackMessage)
+
+@ViewBag.ErrorMessage
+
+<h4>@ViewBag.Title</h4>
+
+<hr />
+
+@if ( Model!=null && Model.Count() > 0) {
+
+    ViewBag.HasGrid = true;
+    int rowNum = 0;
+
+    @grid.GetHtml(
+
+        tableStyle: "viewTable",
+        fillEmptyRows: false,
+        headerStyle: "viewTableHeader",
+        mode: WebGridPagerModes.All,
+        firstText: "<< First",
+        previousText: "< Prev",
+        nextText: "Next >",
+        lastText: "Last >>",
+
+        columns: new[] {
+            grid.Column("S/NO",format: item => rowNum = rowNum + 1),
+            //grid.Column("Branch","Branch Name"),
+            grid.Column("BRANCH NAME",format:(item) => Html.ActionLink((string) item.Branch, "OpenMemoEntry", "MyEntries",new { WorkflowID = @item.WorkflowID,RequestStageId=@item.RequestStageId },null)),
+            grid.Column("Subject","MEMO SUBJECT"  ),
+            grid.Column("From","FROM"),
+            grid.Column("To","TO"),
+            grid.Column("DateOfMemo","DATE OF MEMO"),
+            grid.Column("DateSubmitted","DATE SUBMITTED"),
+            grid.Column("RequestStage","REQUEST STAGE"),
+            grid.Column("RequestStageId",
+                        "APPROVERS",
+                        format: @<a href="javascript:getApprovers('@item.WorkflowID','@item.RequestStageId');"><span class="glyphicon glyphicon-user"></span></a>,
+                        style:"text-center"
+                        ),
+            grid.Column("ACTION",format:(item) => Html.ActionLink((string) item.Action, "OpenMemoEntry", "MyEntries",new { WorkflowID = @item.WorkflowID,RequestStageId=@item.RequestStageId },null))
+       })
+}
+else {
+    <p>Nothing to display</p>
+}
+
+<script language="javascript" type="text/javascript">
+
+    function getApprovers(workflowid, requeststageid) {
+        //console.log(workflowid.toString());
+        //console.log(requeststageid.toString());
+        $.ajax({
+            type: "POST",
+            //url: "../MyEntries/GetApprovers",
+            url: '@Url.Action("GetApprovers", "MyEntries")',
+            traditional: true,
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ WorkflowID: workflowid, RequestStageID: requeststageid }),
+            success: function (data) {
+                if (data != undefined || data[0] != null) {
+                    if (data[0].ApproverStaffName == "" || data.ApproverStaffName == "Error") {
+                        alert(data.ApproverStaffName);
+                    } else {
+                        var apprs = "Approvers:\n\n";
+                        $.each(data, function (index, value) {
+                            apprs += value.ApproverStaffName + "\n";
+                        });
+                        alert(apprs);
+                    }
+                }
+            }, error: function (data) {
+                //console.log(data)
+            }
+        });
+    }
+
+</script>

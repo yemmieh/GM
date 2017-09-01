@@ -1,0 +1,3 @@
+C:\Users\okechukwu.agufuobi\Desktop\GenMemo\GeneralMemo_Project\MarketersTarget_MVC\obj\Debug\Promotion.csprojResolveAssemblyReference.cache
+C:\Users\okechukwu.agufuobi\Desktop\GenMemo\GeneralMemo_Project\MarketersTarget_MVC\obj\Debug\MarketersTarget_MVC.dll
+C:\Users\okechukwu.agufuobi\Desktop\GenMemo\GeneralMemo_Project\MarketersTarget_MVC\obj\Debug\MarketersTarget_MVC.pdb

@@ -1,0 +1,72 @@
+20/07/2016 4:36:32 : about to PostBackMessage : Exception!!! / Posted back
+20/07/2016 4:36:33 : After post back : Exception!!! / Posted back
+20/07/2016 4:36:33 : Entered GetStaffProfile
+20/07/2016 4:36:33 : GetStaffInformation : User found!!! / Oyeyemi.Oyetoro
+20/07/2016 4:36:33 : get Awaiting : about firing getMyPendingTargetWorkflows!!! / 
+20/07/2016 4:36:33 :  getMyPendingMemoWorkflows :inside getMyPendingMemoWorkflows!!! / Oyeyemi.Oyetoro
+20/07/2016 4:36:33 : get Entry List Count : Exception!!! / 1
+20/07/2016 4:36:33 : Entry List : Staff Name!!! / Okechukwu.Agufuobi
+20/07/2016 4:36:38 : Entered GetStaffProfile
+20/07/2016 4:36:38 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:36:38 : Entered GetStaffProfile
+20/07/2016 4:36:38 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:36:38 : Entered GetStaffProfile
+20/07/2016 4:36:38 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:36:38 : Entered GetStaffProfile
+20/07/2016 4:36:38 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:36:38 : Entered GetStaffProfile
+20/07/2016 4:36:38 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:36:38 : Entered GetStaffProfile
+20/07/2016 4:36:38 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:36:38 : Entered GetStaffProfile
+20/07/2016 4:36:38 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:36:38 : Entered GetStaffProfile
+20/07/2016 4:36:38 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:36:38 : Entered GetStaffProfile
+20/07/2016 4:36:38 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:36:41 : Entered GetStaffProfile
+20/07/2016 4:36:41 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:36:43 : Entered GetStaffProfile
+20/07/2016 4:36:43 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:36:43 : Entered GetStaffProfile
+20/07/2016 4:36:43 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:36:43 : Entered GetStaffProfile
+20/07/2016 4:36:43 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:36:43 : Entered GetStaffProfile
+20/07/2016 4:36:43 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:36:43 : Entered GetStaffProfile
+20/07/2016 4:36:43 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:36:43 : Entered GetStaffProfile
+20/07/2016 4:36:43 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:36:43 : Entered GetStaffProfile
+20/07/2016 4:36:43 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:36:43 : Entered GetStaffProfile
+20/07/2016 4:36:43 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:36:43 : Entered GetStaffProfile
+20/07/2016 4:36:43 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:37:09 : about to PostBackMessage : Exception!!! / Posted back
+20/07/2016 4:37:09 : After post back : Exception!!! / Posted back
+20/07/2016 4:37:09 : Entered GetStaffProfile
+20/07/2016 4:37:09 : GetStaffInformation : User found!!! / Oyeyemi.Oyetoro
+20/07/2016 4:37:09 : get Awaiting : about firing getMyPendingTargetWorkflows!!! / 
+20/07/2016 4:37:09 :  getMyPendingMemoWorkflows :inside getMyPendingMemoWorkflows!!! / Oyeyemi.Oyetoro
+20/07/2016 4:37:09 : get Entry List Count : Exception!!! / 1
+20/07/2016 4:37:09 : Entry List : Staff Name!!! / Okechukwu.Agufuobi
+20/07/2016 4:37:12 : Entered GetStaffProfile
+20/07/2016 4:37:12 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:37:12 : Entered GetStaffProfile
+20/07/2016 4:37:12 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:37:12 : Entered GetStaffProfile
+20/07/2016 4:37:12 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:37:12 : Entered GetStaffProfile
+20/07/2016 4:37:12 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:37:12 : Entered GetStaffProfile
+20/07/2016 4:37:12 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:37:12 : Entered GetStaffProfile
+20/07/2016 4:37:12 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:37:12 : Entered GetStaffProfile
+20/07/2016 4:37:12 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:37:12 : Entered GetStaffProfile
+20/07/2016 4:37:12 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+20/07/2016 4:37:12 : Entered GetStaffProfile
+20/07/2016 4:37:12 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi

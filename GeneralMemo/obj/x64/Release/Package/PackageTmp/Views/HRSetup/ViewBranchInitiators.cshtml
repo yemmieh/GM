@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MarketersTarget_MVC.Models.BHSingleSetupModel>
+
+@{
+    ViewBag.Title = "Branch Initiators";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    WebGrid grid = new WebGrid(Model,rowsPerPage:20);
+}
+
+<h4>@ViewBag.Title</h4>
+
+@if (Model.Count() > 0) {
+   
+    <div class="form-group ">
+        @Html.Label("Filter By", new { @class = "control-label" })
+        <div class="">
+            @Html.TextBox("FilterBy", "" , new { @class = "form-control ", onblur = "filterBranchInitiators(this.value)", type = "text", id = "FilterBy" })
+        </div>
+    </div>
+    
+    @grid.GetHtml(
+
+        tableStyle: "viewTable",
+        fillEmptyRows: false,
+        headerStyle: "viewTableHeader",
+        mode: WebGridPagerModes.All,
+        firstText: "<< First",
+        previousText: "< Prev",
+        nextText: "Next >",
+        lastText: "Last >>",
+
+        columns: new[]
+        {
+            grid.Column("Id","S/No"),
+            grid.Column("SetupBranch","Branch Name"),
+            grid.Column("StaffName","Staff Name"  ),
+            grid.Column("StaffNumber","Staff Number"),
+            grid.Column("SetupAppPeriod","Appraisal Period"),
+            grid.Column("Comments"),
+            grid.Column("CreateDate","Entry Date"),
+            //grid.Column("Action",format: @<a href="~/HRSetup/BHSingleSetupFormEdit?StaffNumber=@item.StaffNumber&SelectedAppraisalPeriod=@item.SelectedAppraisalPeriod">Edit</a>)
+            grid.Column("Action",format:(item) => Html.ActionLink("Edit", "BHSingleSetupFormEdit", "HRSetup",new { StaffNumber=@item.StaffNumber,SelectedAppraisalPeriod=@item.SelectedAppraisalPeriod},null))
+       })
+    } else {
+        <p>Nothing to display</p>
+    }

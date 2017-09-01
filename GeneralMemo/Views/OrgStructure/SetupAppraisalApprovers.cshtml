@@ -1,0 +1,232 @@
+﻿@using GeneralMemo.Models
+@model GeneralMemo.Models.AppraisalApproverModel
+
+@{
+    ViewBag.Title = "Setup Appraisal Approvers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>@ViewBag.Title</h4>
+
+<hr />
+
+<div class="stf_optionsContainer">
+    <div class="row">
+        <div class="col-md-12">
+
+            <section id="form">
+                @using (Html.BeginForm("SetupAppraisalApprovers", "OrgStructure", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data",id="setupform" })) {
+
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    
+                    
+                    @Html.HiddenFor(m => m.HRStaffName, new { Value = @User.Identity.Name, id = "HRStaffName" })
+                    @Html.HiddenFor(m => m.HRStaffNumber, new { id = "HRStaffNumber" })
+                    @Html.HiddenFor(m => m.RoleTitle, new { id = "RoleTitle" })
+                    @Html.HiddenFor(m => m.UnitTitle, new { id = "UnitTitle" })
+                    @Html.HiddenFor(m => m.DeptTitle, new { id = "DeptTitle" })
+
+                    <div class="form-group col-md-12">
+                        <div class="form-group col-md-2 ">
+                            @Html.LabelFor(m => m.StaffNumber, new { @class = "control-label" })
+                            <div>
+                                @Html.TextBoxFor(m => m.StaffNumber, new { @class = "form-control small-textbox", onblur = "getStaffProfile(this.value)", type = "text", id = "in_StaffNumber" })
+                                @Html.ValidationMessageFor(m => m.StaffNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            @Html.LabelFor(m => m.StaffName, new { @class = "control-label" })
+                            <div>
+                                @Html.TextBoxFor(m => m.StaffName, new { @class = "form-control", @readonly = "readonly", type = "text", id = "in_StaffName" })
+                                @Html.ValidationMessageFor(m => m.StaffName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <div class="form-group col-md-3 ">
+                            @Html.LabelFor(m => m.DeptCode, new { @class = "control-label" })
+                            <div>
+                                @Html.DropDownListFor(m => m.DeptCode, Model.DeptName, "--- Select User Department ---", new { @class = "form-control", id = "DeptCode", onchange = "getUnitsAndRoles(this.id)" })
+                                @Html.ValidationMessageFor(m => m.DeptCode, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3 ">
+                            @Html.LabelFor(m => m.UnitCode, new { @class = "control-label" })
+                            <div>
+                                @if (ViewBag.hasdata=="true") {
+                                    @Html.DropDownListFor(m => m.UnitCode, Model.UnitName, "--- Select User Unit ---", new { @class = "form-control", id = "UnitCode", onchange = "setUnit(this.id)" })
+                                } else {
+                                    @Html.DropDownListFor(m => m.UnitCode, Enumerable.Empty<SelectListItem>(), "--- Select User Unit ---", new { @class = "form-control", id = "UnitCode", onchange = "setUnit(this.id)" })
+                                }
+                                @Html.ValidationMessageFor(m => m.UnitCode, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            @Html.LabelFor(m => m.RoleID, new { @class = "control-label" })
+                            <div>
+                                @if (ViewBag.hasdata=="true") {
+                                    @Html.DropDownListFor(m => m.RoleID, Model.Role, "--- Select User Role ---", new { @class = "form-control", id = "RoleID", onchange = "setRole(this.id)" })
+                                }else{
+                                    @Html.DropDownListFor(m => m.RoleID, Enumerable.Empty<SelectListItem>(), "--- Select User Role ---", new { @class = "form-control", id = "RoleID", onchange = "setRole(this.id)" })
+                                }
+                                @Html.ValidationMessageFor(m => m.RoleID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <div class="">
+                            <span class='web-err'>@ViewBag.ErrorMessage</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <div class="">
+                            <input type="submit" value="Setup Approver" class="btn btn-default" />
+                        </div>
+                    </div>
+                }
+        </section>
+    </div>
+</div>
+    <script type="text/javascript">
+
+    function setPeriod(period) {
+        //alert($("#" + period + " option:selected").text())
+        $("#SetupAppPeriod").val($("#" + period + " option:selected").text());
+    };
+    function setBranch(branchname, val) {
+        $("#SetupBranch").val($("#" + branchname + " option:selected").text());
+        if (val == "001") {
+            $("#HODeptName option:eq(1)").prop("disabled", true);
+            $("#HODeptName option:gt(1)").prop("disabled", false);
+        } else {
+            $("#HODeptName option:eq(1)").prop("disabled", false);
+            $("#HODeptName option:gt(1)").prop("disabled", true);
+        }
+
+        $("#HODeptName").val([]);
+
+    };
+    function setUnit(unitname) {
+        $("#UnitTitle").val($("#" + unitname + " option:selected").text());
+    };
+    function setDept(deptname) {
+        $("#DeptTitle").val($("#" + deptname + " option:selected").text());
+    };
+    function setRole(rolename) {
+        $("#RoleTitle").val($("#" + rolename + " option:selected").text());
+    };
+
+    function getUnitsAndRoles(deptcode) {
+
+        setDept(deptcode)
+        deptcode = $("#" + deptcode + " option:selected").val();
+        //console.log(deptcode)
+
+        $.ajax({
+            type: "POST",
+            async: false,
+            //url: "../OrgStructure/GetUnitsAndRoles",
+            url: '@Url.Action("GetUnitsAndRoles", "OrgStructure")',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ deptcode: deptcode ,_type:"unit"}),
+                success: function (data) {
+                    var UnitCode = $('#UnitCode');
+                    $('#UnitCode option:gt(0)').remove().end();
+                    $(data).each(function () {
+                        $(document.createElement('option'))
+                            .attr('value', this.unitcode)
+                            .text(this.unitname)
+                            .appendTo(UnitCode);
+                    });
+                }
+            });
+            $.ajax({
+                type: "POST",
+                async: false,
+                //url: "../OrgStructure/GetUnitsAndRoles",
+                url: '@Url.Action("GetUnitsAndRoles", "OrgStructure")',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ deptcode: deptcode, _type: "role" }),
+                success: function (data) {
+                    var RoleID = $('#RoleID');
+                    $('#RoleID option:gt(0)').remove().end();
+                    $(data).each(function () {
+                        //console.log(data)
+                        $(document.createElement('option'))
+                            .attr('value', this.roleid)
+                            .text(this.role)
+                            .appendTo(RoleID);
+                    });
+                }
+            });
+        }
+
+        //validate the new staff number
+        //getStaffProfile('20071488')
+        function getStaffProfile(staffnumber) {
+            //alert(staffnumber)
+            var StaffNumber = "";
+            var StaffName = "";
+            var StaffGrade = "";
+
+            $.ajax({
+                type: "POST",
+                //url: "../HRSetup/GetStaffProfile",
+                url: '@Url.Action("GetStaffProfile", "HRSetup")',
+            traditional: true,
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ StaffNumber: staffnumber }),
+            success: function (data) {
+                //console.log(data)
+                var StaffName = "";
+
+                if (data[0] == undefined || data[0] == null) {
+                    StaffName = data.name;
+                    StaffNumber = data.employee_number;
+                    StaffGrade = data.grade_code;
+
+                    $("#in_StaffName").val("");
+                    $("#in_StaffNumber").val("");
+                    $("#in_StaffGrade").val("");
+
+                    $(".web-err").html(StaffNumber + "_" + StaffName);
+
+                } else {
+                    StaffName = data[0].name;
+                    StaffNumber = data[0].employee_number;
+                    StaffGrade = data[0].grade_code;
+
+                    $("#in_StaffName").val(StaffName);
+                    $("#in_StaffNumber").val(StaffNumber);
+                    $("#in_StaffGrade").val(StaffGrade);
+
+                    $(".web-err").html("");
+                }
+
+            }, error: function (data) {
+                //console.log(data)
+            }
+        });
+    }
+    function addCommas(str) {
+        return (str + "").replace(/\b(\d+)((\.\d+)*)\b/g, function (a, b, c) {
+            return (b.charAt(0) > 0 && !(c || ".").lastIndexOf(".") ? b.replace(/(\d)(?=(\d{3})+$)/g, "$1,") : b) + c;
+        });
+    }
+    function roundNumber(number) {
+        var newnumber = new Number(number + '').toFixed(parseInt(2));
+        return new String(parseFloat(newnumber));
+    }
+    function removeCommas(e) {
+        if (!e || e == "") { return false; }
+        while (e.indexOf(",") > -1) { e = e.replace(",", ""); }
+        return e;
+    }
+    </script>
+</div>

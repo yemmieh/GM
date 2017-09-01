@@ -1,0 +1,87 @@
+﻿@model GeneralMemo.Models.RerouteModel
+
+@{
+    ViewBag.Title = "Reroute Entry for - ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>@ViewBag.Title @Model.EntryModel.Branch</h4>
+
+@ViewBag.ErrorMessage
+
+<hr />
+
+<div class="stf_optionsContainer">
+    <div class="row">
+        <div class="col-md-12">
+            <section id="form">
+                @using (Html.BeginForm("Reroute", "Reroute", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" })) {
+
+                    @Html.HiddenFor(m => m.NewRequestStageTitle, new { id = "NewRequestStageTitle" })
+                    @Html.HiddenFor(m => m.WorkflowID, new { id = "WorkflowID" })
+
+                    //EntryModel
+                    @Html.HiddenFor(m => m.EntryModel.WorkflowID)
+                    @Html.HiddenFor(m => m.EntryModel.StaffNumber)
+                    @Html.HiddenFor(m => m.EntryModel.StaffName)
+                    @Html.HiddenFor(m => m.EntryModel.Branch)
+                    @Html.HiddenFor(m => m.EntryModel.BranchCode)
+                    @Html.HiddenFor(m => m.EntryModel.DeptName)
+                    @Html.HiddenFor(m => m.EntryModel.DeptCode)
+                    @Html.HiddenFor(m => m.EntryModel.AppraisalPeriod)
+                    @Html.HiddenFor(m => m.EntryModel.AppraisalPeriodName)
+                    @Html.HiddenFor(m => m.EntryModel.RequestStage)
+                    @Html.HiddenFor(m => m.EntryModel.RequestStageId)
+                    @Html.HiddenFor(m => m.EntryModel.UploadStatus)
+                    @Html.HiddenFor(m => m.EntryModel.DateSubmitted)
+                    @*@Html.HiddenFor(m => m.EntryModel.Approvers           )*@
+                    @Html.HiddenFor(m => m.EntryModel.Action)
+
+                    <div class="form-group">
+                        <div class="col-md-2 ">
+                            @Html.LabelFor(m => m.CurrentRequestStage, new { @class = "control-label" })
+                            <div class="">
+                                @Html.TextBoxFor(m => m.CurrentRequestStage, Model.CurrentRequestStage, new { @class = "form-control ", type = "text", id = "CurrentRequestStage", @readonly = "readonly" })
+                                @Html.ValidationMessageFor(m => m.CurrentRequestStage, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-2 col-md-offset-0">
+                            @Html.LabelFor(m => m.NewRequestStageCode, new { @class = "control-label" })
+                            <div class="">
+                                @Html.DropDownListFor(m => m.NewRequestStageCode, Model.NewRequestStage, "--- Select A New Stage ---", new { @class = "form-control", id = "NewRequestStageCode", onchange = "setField(this.id)" })
+                                @Html.ValidationMessageFor(m => m.NewRequestStageCode, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-2 ">
+                            @Html.LabelFor(m => m.Comments, new { @class = "control-label" })
+                            <div class="">
+                                @Html.TextBoxFor(m => m.Comments, Model.Comments, new { @class = "form-control ", type = "text", id = "Comments" })
+                                @Html.ValidationMessageFor(m => m.Comments, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10 ">
+                            <br />
+                            <div>
+                                <input name="RerouteAction" type="submit" value="Reroute" class="btn btn-default  col-md-1 col-md-offset-0" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            </section>
+        </div>
+    </div>
+</div>
+
+<script language="javascript" type="text/javascript">
+
+    function setField(fieldname) {
+        $("#NewRequestStageTitle").val($("#" + fieldname + " option:selected").text());
+    };
+
+</script>

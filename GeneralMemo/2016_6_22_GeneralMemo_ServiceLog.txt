@@ -1,0 +1,286 @@
+22/06/2016 6:39:07 : Entered GetStaffProfile
+22/06/2016 6:39:07 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:07 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:07 : Entered GetStaffProfile
+22/06/2016 6:39:08 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:08 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:08 : Entered GetStaffProfile
+22/06/2016 6:39:08 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:08 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:08 : Entered GetStaffProfile
+22/06/2016 6:39:08 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:08 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:08 : Entered GetStaffProfile
+22/06/2016 6:39:08 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:08 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:08 : Entered GetStaffProfile
+22/06/2016 6:39:08 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:08 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:08 : Entered GetStaffProfile
+22/06/2016 6:39:08 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:08 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:08 : Entered GetStaffProfile
+22/06/2016 6:39:08 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:08 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:09 : Entered GetStaffProfile
+22/06/2016 6:39:09 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:09 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:09 : Entered GetStaffProfile
+22/06/2016 6:39:09 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:09 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:09 : Entered GetStaffProfile
+22/06/2016 6:39:09 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:09 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:09 : Entered GetStaffProfile
+22/06/2016 6:39:09 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:09 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:09 : Entered GetStaffProfile
+22/06/2016 6:39:09 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:09 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:09 : Entered GetStaffProfile
+22/06/2016 6:39:09 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:09 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:09 : Entered GetStaffProfile
+22/06/2016 6:39:10 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:10 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:10 : Entered GetStaffProfile
+22/06/2016 6:39:10 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:10 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:10 : Entered GetStaffProfile
+22/06/2016 6:39:10 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:10 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:10 : Entered GetStaffProfile
+22/06/2016 6:39:10 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:10 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:10 : Entered GetStaffProfile
+22/06/2016 6:39:10 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:10 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:10 : Entered GetStaffProfile
+22/06/2016 6:39:10 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:10 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:10 : Entered GetStaffProfile
+22/06/2016 6:39:10 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:10 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:10 : Entered GetStaffProfile
+22/06/2016 6:39:10 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:10 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:10 : Entered GetStaffProfile
+22/06/2016 6:39:11 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:11 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:11 : Entered GetStaffProfile
+22/06/2016 6:39:11 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:11 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:11 : Entered GetStaffProfile
+22/06/2016 6:39:11 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:11 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:11 : Entered GetStaffProfile
+22/06/2016 6:39:11 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:11 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:11 : Entered GetStaffProfile
+22/06/2016 6:39:11 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:11 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:11 : Entered GetStaffProfile
+22/06/2016 6:39:11 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:11 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:11 : Entered GetStaffProfile
+22/06/2016 6:39:11 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:11 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:11 : Entered GetStaffProfile
+22/06/2016 6:39:11 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:11 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:12 : Entered GetStaffProfile
+22/06/2016 6:39:12 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:12 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:12 : Entered GetStaffProfile
+22/06/2016 6:39:12 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:12 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:12 : Entered GetStaffProfile
+22/06/2016 6:39:12 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:12 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:12 : Entered GetStaffProfile
+22/06/2016 6:39:12 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:12 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:12 : Entered GetStaffProfile
+22/06/2016 6:39:12 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:12 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:12 : Entered GetStaffProfile
+22/06/2016 6:39:12 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:12 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:12 : Entered GetStaffProfile
+22/06/2016 6:39:12 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:12 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:12 : Entered GetStaffProfile
+22/06/2016 6:39:13 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:13 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:13 : Entered GetStaffProfile
+22/06/2016 6:39:13 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:13 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:13 : Entered GetStaffProfile
+22/06/2016 6:39:13 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:13 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:13 : Entered GetStaffProfile
+22/06/2016 6:39:13 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:13 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:13 : Entered GetStaffProfile
+22/06/2016 6:39:13 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:13 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:13 : Entered GetStaffProfile
+22/06/2016 6:39:13 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:13 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:13 : Entered GetStaffProfile
+22/06/2016 6:39:13 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:13 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:13 : Entered GetStaffProfile
+22/06/2016 6:39:13 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:13 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:14 : Entered GetStaffProfile
+22/06/2016 6:39:14 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:14 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:14 : Entered GetStaffProfile
+22/06/2016 6:39:14 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:14 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:14 : Entered GetStaffProfile
+22/06/2016 6:39:14 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:14 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:14 : Entered GetStaffProfile
+22/06/2016 6:39:14 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:14 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:14 : Entered GetStaffProfile
+22/06/2016 6:39:14 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:14 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:14 : Entered GetStaffProfile
+22/06/2016 6:39:14 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:14 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:14 : Entered GetStaffProfile
+22/06/2016 6:39:14 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:14 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:14 : Entered GetStaffProfile
+22/06/2016 6:39:14 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:15 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:15 : Entered GetStaffProfile
+22/06/2016 6:39:15 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:15 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:15 : Entered GetStaffProfile
+22/06/2016 6:39:15 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:15 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:15 : Entered GetStaffProfile
+22/06/2016 6:39:15 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:15 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:15 : Entered GetStaffProfile
+22/06/2016 6:39:16 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:16 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:16 : Entered GetStaffProfile
+22/06/2016 6:39:16 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:16 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:16 : Entered GetStaffProfile
+22/06/2016 6:39:16 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:16 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:16 : Entered GetStaffProfile
+22/06/2016 6:39:16 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:16 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:16 : Entered GetStaffProfile
+22/06/2016 6:39:16 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:16 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:16 : Entered GetStaffProfile
+22/06/2016 6:39:16 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:16 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:16 : Entered GetStaffProfile
+22/06/2016 6:39:16 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:16 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:16 : Entered GetStaffProfile
+22/06/2016 6:39:16 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+22/06/2016 6:39:16 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+22/06/2016 6:39:24 : about to PostBackMessage : Exception!!! / Posted back
+22/06/2016 6:39:24 : After post back : Exception!!! / Posted back
+22/06/2016 6:39:24 : Entered GetStaffProfile
+22/06/2016 6:39:24 : GetStaffInformation : User found!!! / Oyeyemi.Oyetoro
+22/06/2016 6:39:24 : get Awaiting : about firing getMyPendingTargetWorkflows!!! / 
+22/06/2016 6:39:24 :  getMyPendingMemoWorkflows :inside getMyPendingMemoWorkflows!!! / Oyeyemi.Oyetoro
+22/06/2016 6:39:25 : get Entry List Count : Exception!!! / 1
+22/06/2016 6:39:25 : Entry List : Staff Name!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:26 : Entered GetStaffProfile
+22/06/2016 6:39:26 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:26 : Entered GetStaffProfile
+22/06/2016 6:39:26 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:26 : Entered GetStaffProfile
+22/06/2016 6:39:26 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:26 : Entered GetStaffProfile
+22/06/2016 6:39:26 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:26 : Entered GetStaffProfile
+22/06/2016 6:39:26 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:26 : Entered GetStaffProfile
+22/06/2016 6:39:26 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:26 : Entered GetStaffProfile
+22/06/2016 6:39:26 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:26 : Entered GetStaffProfile
+22/06/2016 6:39:27 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:27 : Entered GetStaffProfile
+22/06/2016 6:39:27 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:33 : Entered GetStaffProfile
+22/06/2016 6:39:33 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:34 : Entered GetStaffProfile
+22/06/2016 6:39:34 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:34 : Entered GetStaffProfile
+22/06/2016 6:39:34 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:34 : Entered GetStaffProfile
+22/06/2016 6:39:34 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:34 : Entered GetStaffProfile
+22/06/2016 6:39:34 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:34 : Entered GetStaffProfile
+22/06/2016 6:39:34 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:34 : Entered GetStaffProfile
+22/06/2016 6:39:34 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:34 : Entered GetStaffProfile
+22/06/2016 6:39:34 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:34 : Entered GetStaffProfile
+22/06/2016 6:39:34 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:34 : Entered GetStaffProfile
+22/06/2016 6:39:34 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:43 : about to PostBackMessage : Exception!!! / Posted back
+22/06/2016 6:39:43 : After post back : Exception!!! / Posted back
+22/06/2016 6:39:44 : Entered GetStaffProfile
+22/06/2016 6:39:44 : GetStaffInformation : User found!!! / Oyeyemi.Oyetoro
+22/06/2016 6:39:44 : get Awaiting : about firing getMyPendingTargetWorkflows!!! / 
+22/06/2016 6:39:44 :  getMyPendingMemoWorkflows :inside getMyPendingMemoWorkflows!!! / Oyeyemi.Oyetoro
+22/06/2016 6:39:44 : get Entry List Count : Exception!!! / 1
+22/06/2016 6:39:44 : Entry List : Staff Name!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:44 : Entered GetStaffProfile
+22/06/2016 6:39:44 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:44 : Entered GetStaffProfile
+22/06/2016 6:39:44 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:44 : Entered GetStaffProfile
+22/06/2016 6:39:44 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:44 : Entered GetStaffProfile
+22/06/2016 6:39:44 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:44 : Entered GetStaffProfile
+22/06/2016 6:39:44 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:44 : Entered GetStaffProfile
+22/06/2016 6:39:44 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:44 : Entered GetStaffProfile
+22/06/2016 6:39:44 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:44 : Entered GetStaffProfile
+22/06/2016 6:39:44 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:44 : Entered GetStaffProfile
+22/06/2016 6:39:44 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:46 : Entered GetStaffProfile
+22/06/2016 6:39:46 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:46 : Entered GetStaffProfile
+22/06/2016 6:39:46 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:46 : Entered GetStaffProfile
+22/06/2016 6:39:46 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:46 : Entered GetStaffProfile
+22/06/2016 6:39:46 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:46 : Entered GetStaffProfile
+22/06/2016 6:39:46 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:46 : Entered GetStaffProfile
+22/06/2016 6:39:46 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:46 : Entered GetStaffProfile
+22/06/2016 6:39:46 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:46 : Entered GetStaffProfile
+22/06/2016 6:39:46 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:46 : Entered GetStaffProfile
+22/06/2016 6:39:46 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:46 : Entered GetStaffProfile
+22/06/2016 6:39:46 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+22/06/2016 6:39:46 : Entered GetStaffProfile
+22/06/2016 6:39:46 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi

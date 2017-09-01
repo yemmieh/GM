@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Zenith" Class="ExceedConnectionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=172.29.12.174;Initial Catalog=Zenith;Persist Security Info=True;User ID=infotech" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ZenithConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.vw_branch_analysis" Member="vw_branch_analysis">
+    <Type Name="vw_branch_analysi">
+      <Column Name="analysis_det_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="analysis_det_code" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="description" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="analysis_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="org_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="state" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="analysis_det_id_link" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="website" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="phone_no" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="address_line2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="address_line1" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="city" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="state_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="country_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="isarchived" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="headed_by" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vw_employeeinfo" Member="vw_employeeinfos">
+    <Type Name="vw_employeeinfo">
+      <Column Name="employee_number" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(205)" CanBeNull="true" />
+      <Column Name="companyname" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="employee_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="linemanager" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="emp_confirm" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="grade_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="department_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="employment_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="a_confirmdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="gender" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="marital_status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="title" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="employment_type" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="p_confirm_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="unit" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="status_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="last_promo_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="maiden_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="account_no" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="nsitf_no" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="nhf_no" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="state" Type="System.String" DbType="VarChar(8000)" CanBeNull="true" />
+      <Column Name="employee_status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="org_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dept" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="paygroup" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="lga" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="annual_salary" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="religion_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="department_code" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="grade" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ranking" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="date_of_birth" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="title_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="acting_title_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="title_code" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="jobtitle" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="currency_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="wedding_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="len_service" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="code" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="on_payroll" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Branch" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Branch_code" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="random_hash" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="deferment" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="analysis_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="grade_code" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="step" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Category" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="remark" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="analysis_det_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="paygroup_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="state_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="employee_surname" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="gsm" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="mobile_phone" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="office_ext" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="employee_firstname" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="employee_midname" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="HEALTH_PLAN_CATEGORY" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="nsitf_entitled" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="nhf_entitled" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="street1_r" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="street2_r" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="city_r" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="country_r" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="street1_p" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="street2_p" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="city_p" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="logon_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="created_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="homeplace" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="employee_fileno" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="country" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="leaveBf" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="leaveoutstanding" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="total_leave_days" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="state_code" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="state_p" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="state_r" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="license_no" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="license_type" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="license_date_issued" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="license_expires" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="passport_no" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="passport_date_issued" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="passport_expires" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="next_of_kin_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cm_department" Member="cm_departments">
+    <Type Name="cm_department">
+      <Column Name="department_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="department_code" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="description" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="department_level" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="reports_to" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="manning" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="head_office" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="branch_payment_code" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="state_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="org_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="analysis_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="analysis_det_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="country_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

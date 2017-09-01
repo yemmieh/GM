@@ -1,0 +1,391 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background:#eee;
+    font-family:dosisregular,Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke: 1px rgba(0,0,0,0.1);
+    letter-spacing:1px;
+}
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 1.5%;
+}
+footer{
+    font-size:0.82em;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.navbar{
+    background:none;
+    color:#fff;
+    border:none;
+}
+.navbar-inverse .navbar-brand {
+    float: left;
+    font-size: 30px;
+    color: #222;
+    padding:10px 10px;
+}
+.navbar-header {
+    width: 83%;
+    margin: 0 auto;
+}
+@media (min-width: 768px){
+    .navbar > .container .navbar-brand {
+        margin-left: 0px;
+    }
+}
+.navbar-inverse .navbar-brand:hover {
+    color: #222;
+}
+.navbar-collapse {
+    padding-right: 0;
+    padding-left: 0;
+}
+a:hover{
+    color:#d73327;
+}
+.container{
+    width: 90%;
+    max-width: 90%;
+}
+.container-header{
+    background:#fff;
+}
+.container-navi{
+    background:#d73327;
+    padding-left:0;
+    padding-right:0;
+    width:100%;
+    max-width:100%;
+}
+.container-navigation{
+    background: #D73327;
+    margin: 0 auto;
+}
+@media (min-width: 768px){
+    .navbar-nav {
+        float: none;
+        margin: 0;
+    }
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+}
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: #e0e0e0;
+}
+.nav{
+    width: 90%;
+    margin: 0 auto;
+    background: #BB1D1A;
+    white-space:nowrap;
+}
+.nav:after {
+    content:'';
+    clear:both;
+    display:table;
+}
+.nav li{
+    border-right:1px solid #CC1C21;
+    display: inline-block;
+    float:left;
+}
+.nav li:hover{
+    background-color:#6d0707;
+}
+.nav li:last-child,.nav li:nth-last-child(2){
+    float:right !important;
+}
+.nav li:nth-last-child(3){
+    border:none;
+}
+.navbar-nav > li > a {
+    padding: 10px 26px;
+    font-size: 0.9em;
+}
+/***FOR THE DROP DOWNS***/
+ul.nav li.dd_list ul{
+	display:none;
+	position:absolute;
+	padding:0px;
+ 	margin:0 0 0 -0.8px;
+ 	width:220px;
+ 	z-index:2000;
+}
+.nav li.dd_list a{
+	padding:14px 14px 6px 12px;
+}
+ul.nav li:hover ul{ 
+    display:block;
+}
+ul.nav li ul li{
+	display:block;
+	width:220px;
+	font-size: 1.1em;
+	background-color:#900b0b !important;
+    padding: 10px 0;
+}
+ul.nav li ul li:hover{
+	background-color:#6d0707 !important;
+	padding-left:5px;
+}
+ul.nav li ul li a{
+    padding: 10px 26px;
+	font-size: 0.8em;
+    color: #fff;
+}
+ul.nav li ul li a:hover{
+    color: #e0e0e0;
+}
+
+/***END FOR THE DROP DOWNS***/
+.body-content{
+    margin: 1.5% auto;
+    background: #fff;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+.form-control {
+    border-radius: 0;
+    max-width: 250px;
+    letter-spacing:1px;
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    font-size:0.85em;
+    box-shadow:none;
+}
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    cursor: not-allowed;
+    background-color: #fff;
+    border:1px solid #eee;
+}
+
+.small-textbox{
+    max-width:150px;
+}
+.textbox-faint-border{
+
+}
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    border-radius: 0;
+    border:1px solid #bdbdbd;
+    color:#000;
+    background:#bdbdbd;
+    letter-spacing:1px;
+}
+button:hover, html input:hover[type="button"], input:hover[type="reset"], input:hover[type="submit"] {
+    border:1px solid #bdbdbd;
+}
+label {
+    font-weight:normal;
+}
+.blank-text{
+    color:#fff;
+}
+.dept-state{
+    display:none;
+}
+.map-err , .web-err,.field-validation-error{
+	font-size: 12px;
+    color: #d73327;
+	display:block;
+}
+.web-err{
+	font-weight: 600;
+}
+
+/***********************VIEW NAVIGATION CSS*************************/
+/* 1765af  1f82c9 */
+.viewTable{
+	width:100%;
+}
+.viewTable tr th , .viewTable tr td {
+	font-size:0.92em; /* 15/12 */
+	font-weight:normal;
+	padding:10px;
+	cursor:pointer;
+	vertical-align: middle;
+}
+.viewTable tr th , .viewTableHeader{
+    color:#fff;
+    background:#777;
+	border-right:1px solid #888;
+    padding:10px;
+    font-size:0.94em; /* 15/12 */
+	font-weight:normal;
+}
+.viewTable tr th , .viewTableHeader a{
+    color:#fff;
+    text-decoration:none;
+    font-size:0.9em; /* 15/12 */
+}
+.viewTable tr th:hover , .viewTableHeader:hover{
+    background:#127bbc;
+}
+.viewTable tr td{
+	border-right:0.1em solid #eee;
+	border-bottom:1px solid #eee;
+	color:#000;
+    padding:7px;
+    font-size:0.8em;
+}
+.viewTable tr td i{
+	color:#028dd1;
+	font-size:1.2em;
+}
+.viewTable tr.summaryRow td{
+	background:#e8e8e8;
+	color:#103769;
+	font-size:1.2em; /* 13/12 */
+	font-weight:bold;
+}
+.viewTableFooter{
+    font-size:0.94em; /* 15/12 */
+	font-weight:600;
+}
+.viewTableFooter td a , tfoot td a{
+    padding:20px 10px;
+    font-weight:600;
+}
+tfoot tr td{
+    padding:20px 20px;
+    font-weight:600;
+}
+.hotspot{	
+	font-size:1.7em; /* 20.4/12 */
+	color:#2088b4;
+}
+.excelTable .viewTable tr td {
+	border-bottom:1px solid #d0d0d0;
+	padding:6px; 
+	color:#000;
+	/*white-space: nowrap;*/
+}
+.divView{
+	width:50%;
+	margin:0 auto;
+}
+#viewbtnLeft {
+	float:left;
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+#viewbtnRight {
+	float:right;
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+
+tr.view_rpt td{
+	border-bottom:1px solid #d0d0d0;
+	/*padding:2px;*/
+	background-color: #F7F7F7;
+}
+
+td.view_rpt {
+	border-bottom:1px solid #d0d0d0;
+	padding:2px;
+}
+
+tr.view_rpt_log td{
+	/*padding:2px;*/
+	font-weight:bold;
+	background-color:#EEE; 
+	border-bottom:1px solid #d0d0d0;
+	border-right:1px solid #d0d0d0;
+}
+
+tr.over td{background-color: #e8e8e8;cursor:pointer;}
+
+tr.viewActive td{background-color: #FFFAFA;cursor:pointer;}
+
+/**FOR THE DISPLAY TABLE**/
+.inputTargetGridInitiate tr th{
+    font-size:0.8em;
+}
+tr#sum_row td{
+    padding:11px;
+}
+.edit-mode {
+    width:90px;
+}
+/*input[type=text].edit-mode{
+    border:none;
+    height: 25px;
+    padding: 4px;
+}*/
+.edit-user, .save-user{
+    display:inline-block;
+    width:auto;
+}
+.edit-user display-mode{
+
+}
+.save-user edit-mode{
+}
+.display-mode{
+
+}
+.col1Width{
+    width: 50px;
+}
+.col2Width{
+    width: 200px;
+}
+.has-delete:after {
+  font-family: "Glyphicons Halflings";
+  content: "\e020";
+  color:#d73327;
+}
+.tgtvals{
+    border:1px solid #fafafa;
+    height: 25px;
+    padding: 4px;
+    letter-spacing:1px;
+    outline:none;
+}
+.tgtvals:hover{
+    border:1px solid #eee;
+}
+tr#sum_row td{
+    font-weight:600;
+}
+tr#sum_row td:first-child{
+    text-align:right;
+}
+.no-border{
+    border:none;
+}
+.no-border:hover{
+    border:none;
+}
+.employee_number{
+    width:50px;
+}
+.grade{
+    width:20px;
+}
+.errorRow {
+	border-bottom:1px solid red;
+}
+tr.errorRow td {
+	background-color:#FFC;
+}

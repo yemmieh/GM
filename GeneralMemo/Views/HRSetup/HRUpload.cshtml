@@ -1,0 +1,134 @@
+﻿@model IEnumerable<GeneralMemo.Models.EntriesModel>
+
+@{
+    ViewBag.Title = "HR Upload";
+    //ViewBag.User = "Welcome "+(string) @System.Environment.UserName+"!";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    WebGrid grid = new WebGrid(Model, canPage: false);
+}
+
+@Html.Raw(ViewBag.PostBackMessage)
+
+<h4>@ViewBag.Title</h4>
+
+<hr />
+
+<div class="stf_optionsContainer">
+    <div class="row">
+        <div class="col-md-12">
+            <section id="form">
+                @using (Html.BeginForm("FilterHRUpload", "HRSetup", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" })) {
+
+                    <div class="form-group">
+                        <div class="col-md-2 ">
+                            @Html.Label("Search Text", new { @class = "control-label" })
+                            <div class="">
+                                @Html.TextBox("FilterBy", "", new { @class = "form-control ", type = "text", id = "FilterBy" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("*", new { @class = "blank-text" })
+                            <div>
+                                <input name="TargetAction" type="submit" value="Search" class="btn btn-default  col-md-1 col-md-offset-0" />
+                            </div>
+                        </div>
+                    </div>
+
+                    if (Model != null && Model.Count() > 0) {
+                        ViewBag.HasGrid = true;
+                        int rowNum = 0;
+
+                        <a href="javascript:selectAll();" class="btn " style="font-size:smaller;">Select All</a>
+                        <a href="javascript:deSelectAll();" class="btn " style="font-size:smaller;">Unselect All</a>
+
+                        @grid.GetHtml(
+                            tableStyle: "viewTable",
+                            fillEmptyRows: false,
+                            headerStyle: "viewTableHeader",
+                            mode: WebGridPagerModes.All,
+                            firstText: "<< First",
+                            previousText: "< Prev",
+                            nextText: "Next >",
+                            lastText: "Last >>",
+                            columns: new[] {
+                                grid.Column("S/No",format: item => rowNum = rowNum + 1),
+                                grid.Column(header: "", format: @<text><input name="WorkflowID" id="WorkflowID" type="checkbox" value="@item.WorkflowID" /></text>),
+                                grid.Column("StaffName","Initiator Name"),
+                                grid.Column("Branch Name",format:(item) => Html.ActionLink((string) item.Branch, "OpenTargetEntry", "MyEntries",new { WorkflowID = @item.WorkflowID,RequestStageId=@item.RequestStageId },null)),
+                                grid.Column("DeptName","Unit"  ),
+                                grid.Column("AppraisalPeriodName","Appraisal Period"  ),
+                                grid.Column("RequestStage","Request Stage"),
+                                //grid.Column("UploadStatus","Upload Status"),
+                                grid.Column("DateSubmitted","Date Submitted"),
+                                grid.Column("RequestStageId",
+                                            "Approvers",
+                                            format: @<a href="javascript:getApprovers('@item.WorkflowID','@item.RequestStageId');"><span class="glyphicon glyphicon-user"></span></a>,
+                                            style:"text-center"
+                                            )
+                                //grid.Column("Action",format:(item) => Html.ActionLink((string) item.Action, "OpenTargetEntry", "MyEntries",new { WorkflowID = @item.WorkflowID },null))
+                           })
+                        } else {
+                            <p>Nothing to display</p>
+                    }
+                    
+                    <br />
+                    
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input name="TargetAction" type="submit" id="Upload" value="Upload" class="btn btn-default col-md-1" />
+                        </div>
+                    </div>
+                }
+                </section>
+            </div>
+        </div>
+    </div>
+
+<script language="javascript" type="text/javascript">
+
+    function getApprovers(workflowid, requeststageid) {
+        $.ajax({
+            type: "POST",
+            //url: "../MyEntries/GetApprovers",
+            url: '@Url.Action("GetApprovers", "MyEntries")',
+            traditional: true,
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ WorkflowID: workflowid, RequestStageID: requeststageid }),
+            success: function (data) {
+                //console.log(data)
+                //alert(data);
+                if (data != undefined || data[0] != null) {
+                    //alert(data.name);
+                    if (data.employee_number == "" || data.employee_number == "Error") {
+                        alert(data.name);
+                    } else {
+                        data = "APPROVERS:\n\n" + data.toString().replace(/,/g, "\n")
+                        alert(data);
+                    }
+                }
+            }, error: function (data) {
+                //console.log(data)
+            }
+        });
+    }
+    function selectAll() {
+        $('input[type=checkbox]').each(function () {
+            $(this).prop("checked", true);
+        });
+    };
+    function deSelectAll() {
+        $('input[type=checkbox]').each(function () {
+            $(this).prop("checked", false);
+        });
+    };
+    function anySelected() {
+        var anySel = false;
+        $('input[type=checkbox]').each(function () {
+            if ($(this).prop("checked") == true) {
+                anySel = true;
+            }
+        });
+        return anySel;
+    }
+</script>

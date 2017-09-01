@@ -1,0 +1,434 @@
+﻿@model GeneralMemo.Models.SuperInputTargetModel
+@using System.Xml           
+
+@{
+    ViewBag.Title = "Target Input Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //ViewBag.User = "Welcome " + Request.LogonUserIdentity.Name.Substring(Request.LogonUserIdentity.Name.LastIndexOf(@"\") + 1) + "!";
+    //ViewBag.InitiatorName = Request.LogonUserIdentity.Name.Substring(Request.LogonUserIdentity.Name.LastIndexOf(@"\") + 1);
+    ViewBag.InitiatorNumber = "";
+    WebGrid grid        = new WebGrid(Model.RequestDetails, canPage: false);
+    WebGrid apprvlgrid  = new WebGrid(Model.ApprovalDetails, canPage: false);
+}
+
+<h4>@ViewBag.Title - @Model.RequestBranch</h4>
+
+<hr />
+
+<p>@ViewBag.ErrorMessage</p>
+
+<div class="stf_optionsContainer">
+    <div class="row">
+        <div class="col-md-12">
+
+            <section id="form">
+                @using (Html.BeginForm("TargetInputForm", "InputTarget", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" , i="3" })) {
+
+                    @Html.HiddenFor( m => m.WorkflowID      )
+                    @Html.HiddenFor( m => m.RequestStage    )
+                    @Html.HiddenFor( m => m.RequestStageID  )
+                    @Html.HiddenFor( m => m.CanSave         )
+                    @Html.HiddenFor( m => m.RequestDate     )
+
+                    //StaffADProfile
+                    @Html.HiddenFor( m => m.StaffADProfile.user_logon_name  )
+                    @Html.HiddenFor( m => m.StaffADProfile.employee_number  )
+                    @Html.HiddenFor( m => m.StaffADProfile.branch_name      )
+                    @Html.HiddenFor( m => m.StaffADProfile.branch_code      )
+                    @Html.HiddenFor( m => m.StaffADProfile.hodeptcode       )
+                    @Html.HiddenFor( m => m.StaffADProfile.hodeptname       )
+                    @Html.HiddenFor( m => m.StaffADProfile.appperiod        )
+                    
+                    //EntryModel
+                    @Html.HiddenFor(m => m.EntryModel.WorkflowID            )
+                    @Html.HiddenFor(m => m.EntryModel.StaffNumber           )
+                    @Html.HiddenFor(m => m.EntryModel.StaffName             )
+                    @Html.HiddenFor(m => m.EntryModel.Branch                )
+                    @Html.HiddenFor(m => m.EntryModel.BranchCode            )
+                    @Html.HiddenFor(m => m.EntryModel.DeptName              )
+                    @Html.HiddenFor(m => m.EntryModel.DeptCode              )
+                    @Html.HiddenFor(m => m.EntryModel.AppraisalPeriod       )
+                    @Html.HiddenFor(m => m.EntryModel.AppraisalPeriodName   )
+                    @Html.HiddenFor(m => m.EntryModel.RequestStage          )
+                    @Html.HiddenFor(m => m.EntryModel.RequestStageId        )
+                    @Html.HiddenFor(m => m.EntryModel.UploadStatus          )
+                    @Html.HiddenFor(m => m.EntryModel.DateSubmitted         )
+                    @*@Html.HiddenFor(m => m.EntryModel.Approvers           )*@
+                    @Html.HiddenFor(m => m.EntryModel.Action                )
+
+
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <!--For Deletion of Staff-->
+                    <input name="TargetAction" type="submit" value="DeleteStaff" id="DeleteStaff" style="display:none;" />
+                    <input type="hidden" value="" name="StaffNumber" />
+
+                    string editMode = TempData["editMode"] as string;
+                    if (Model != null && (Model.RequestStageID == 0 || Model.RequestStageID == -1)) {
+
+                        <div class="form-group col-md-2 ">
+                            @Html.LabelFor(m => m.StaffADProfile.in_StaffNumber, new { @class = "control-label" })
+                            <div>
+                                @Html.TextBoxFor(m => m.StaffADProfile.in_StaffNumber, new { @class = "form-control small-textbox", onblur = "getStaffProfile(this.value)",type = "text", id = "in_StaffNumber" })
+                                @Html.ValidationMessageFor(m => m.StaffADProfile.in_StaffNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            @Html.LabelFor(m => m.StaffADProfile.in_StaffName, new { @class = "control-label" })
+                            <div>
+                                @Html.TextBoxFor(m => m.StaffADProfile.in_StaffName,new { @class = "form-control", @readonly = "readonly", type = "text", id = "in_StaffName"})
+                                @Html.ValidationMessageFor(m => m.StaffADProfile.in_StaffName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            @Html.LabelFor(m => m.StaffADProfile.in_StaffGrade, new { @class = "control-label" })
+                            <div>
+                                @Html.TextBoxFor(m => m.StaffADProfile.in_StaffGrade,new { @class = "form-control small-textbox", @readonly = "readonly", type = "text", id = "in_StaffGrade"})
+                                @Html.ValidationMessageFor(m => m.StaffADProfile.in_StaffGrade, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("*" , new { @class = "blank-text" } )
+                            <div>
+                                <input name="TargetAction" type="submit" value="AddStaff" class="btn btn-default  col-md-1" />
+                            </div>
+                        </div>
+                    }
+
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <span class='web-err'>@ViewBag.ErrorMessage</span>
+                        </div>
+                    </div>
+                    
+                    TempData["superBulkSetupModel"] = Model;
+
+                    if (Model.RequestDetails!=null && Model.RequestDetails.Count() > 0) {
+
+                        ViewBag.HasGrid = true;
+                        int rowNum = 0;
+
+                        @grid.GetHtml(
+                                        tableStyle: "viewTable inputTargetGridInitiate",
+                                        fillEmptyRows: false,
+                                        headerStyle: "viewTableHeader",
+                                        footerStyle: "viewTableFooter",
+                                        mode: WebGridPagerModes.All,
+                                        columns: new[] {
+                                            grid.Column("S/NO",format: item => rowNum = rowNum + 1),
+                                            //grid.Column(null,null, format: (item) => Html.Hidden("RequestDetails[" + (rowNum - 1).ToString() + "].entry_key"
+                                            //                , (object)item.entry_key,new{@class="entry_key hidden",@readonly="readonly"}) ),
+                                            //grid.Column(format: (item) => Html.Hidden("RequestDetails[" + (rowNum - 1).ToString() + "].entry_key"
+                                            //                , (object)item.entry_key,new{@class="entry_key no-border",@readonly="readonly"}), style: "hidden"),
+                                            grid.Column("name", "NAME",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].name"
+                                                            , (object)item.name,new{@class="name no-border",@readonly="readonly"}) , style: "col2Width has-delete",canSort:false),
+                                            grid.Column("employee_number", "ID",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].employee_number"
+                                                            , (object)item.employee_number,new{@class="employee_number no-border",@readonly="readonly"}) , style: "col2Width",canSort:false),
+                                            grid.Column("grade", "GRADE",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].grade"
+                                                            , (object)item.grade,new{@class="grade no-border",@readonly="readonly"}) , style: "col2Width",canSort:false),
+                                            grid.Column("cabal", "C.A-SELF-SOURCED/REACT.",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].cabal"
+                                                            , (object)item.cabal,new{@class="edit-mode cabal tgtvals"}) , style: "col2Width",canSort:false),
+                                            grid.Column("cabal_l", "C.A/LEGACY ACCT",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].cabal_l"
+                                                            , (object)item.cabal_l,new{@class="edit-mode cabal_l tgtvals"}) , style: "col2Width",canSort:false),
+                                            grid.Column("sabal", "S.A-SELF-SOURCED/REACT.",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].sabal"
+                                                            , (object)item.sabal,new{@class="edit-mode sabal tgtvals"}) , style: "col2Width",canSort:false),
+                                            grid.Column("sabal_l", "S.A-LEGACY ACCT",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].sabal_l"
+                                                            , (object)item.sabal_l,new{@class="edit-mode sabal_l tgtvals"}) , style: "col2Width",canSort:false),
+                                            grid.Column("fx", "FX $(DAS)",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].fx"
+                                                            , (object)item.fx,new{@class="edit-mode fx tgtvals"}) , style: "col2Width",canSort:false),
+                                            grid.Column("rv", "REV. COLL. (N)",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].rv"
+                                                            , (object)item.rv,new{@class="edit-mode rv tgtvals"}) , style: "col2Width",canSort:false),
+                                            grid.Column("fd", "AVG FIXED/CALL DEP. (N)",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].fd"
+                                                            , (object)item.fd,new{@class="edit-mode fd tgtvals"}) , style: "col2Width",canSort:false),
+                                            grid.Column("inc", "INCOME-SELF-SOURCED/REACT.",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].inc"
+                                                            , (object)item.inc,new{@class="edit-mode inc tgtvals"}) , style: "col2Width",canSort:false),
+                                            grid.Column("inc_l", "INCOME LEGACY ACCT",
+                                                        format: (item) => Html.TextBox("RequestDetails[" + (rowNum - 1).ToString() + "].inc_l"
+                                                            , (object)item.inc_l,new{@class="edit-mode inc_l tgtvals"}) , style: "col2Width",canSort:false)
+                                        })
+                    } else {
+                        <p>Nothing to display</p>
+                        ViewBag.HasGrid = null;
+                    }
+                    <br/>
+
+                    if (String.IsNullOrEmpty(editMode)) {
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                @*@if ( Model.CanSave.Equals("true") ) {*@ 
+                                @if (Model != null && (Model.RequestStageID == 0 || Model.RequestStageID == -1)) {
+                                    <input name="TargetAction" type="submit" id="Save" value="Save" class="btn btn-default  col-md-1" />
+                                    <input name="TargetAction" type="submit" id="Reset" value="Reset" class="btn btn-default col-md-offset-1 col-md-1" />
+                                } else {
+                                    <input name="TargetAction" type="submit" id="Deny" value="Deny" class="btn btn-default col-md-offset-1 col-md-1" />
+                                }
+                                <input name="TargetAction" type="submit" id="Submit" value="Submit" class="btn btn-default col-md-offset-1 col-md-1" />
+                            </div>
+                        </div>
+                    }
+
+                    /*Load the Request Approval History Here*/
+                    if (Model.EntryModel != null && Model.EntryModel.Approvers!=null && Model.EntryModel.Approvers.Count() > 0) {
+                        <div style='margin-top:50px;'>
+                            <h5>Request History</h5>
+                            <table class='viewTable approvalhistory'>
+                                <tr class="viewTableHeader"><th>S/NO</th><th>NAME</th><th>STAGE PROCESSED</th><th>ACTION TAKEN</th><th>COMMENTS</th><th>DATE/TIME</th></tr>
+                                @{
+                                    XmlDocument xml = new XmlDocument();
+                                    xml.LoadXml(Model.EntryModel.Approvers);
+                                    XmlNodeList xnList = xml.SelectNodes("/ApprovalHistory/Approvals");
+                                    var idx = 1;
+                                    foreach (XmlNode xn in xnList) {
+                                        <tr>
+                                            <td>@idx</td>
+                                            <td>@xn["ApproverName"].InnerText</td>
+                                            <td>@xn["ApprovedStage"].InnerText</td>
+                                            <td>@xn["ApproverAction"].InnerText</td>
+                                            <td>@xn["ApproverComment"].InnerText</td>
+                                            <td>@xn["ApprovalDateTime"].InnerText</td>
+                                        </tr>
+                                        idx++;
+                                    }
+                                }
+                            </table>
+                        </div>
+                    }
+
+                    /*Load the Audit History Here*/
+                    if (Model.EntryModel != null && Model.EntryModel.Audit!=null && Model.EntryModel.Audit.Count() > 0) {
+                        <div style='margin-top:50px;'>
+                            <h5>Audit Trail</h5>
+                            <table class='viewTable approvalhistory'>
+                                <tr class="viewTableHeader">
+                                    <th>S/NO</th>
+                                    <th>NAME</th>
+                                    <th>STAGE PROCESSED</th>
+                                    <th>C.A-SELF-SOURCED/REACT.</th>
+                                    <th>C.A/LEGACY ACCT</th>
+                                    <th>S.A-SELF-SOURCED/REACT.</th>
+                                    <th>S.A-LEGACY ACCT</th>
+                                    <th>FX $(DAS)</th>
+                                    <th>REV. COLL. (N)</th>
+                                    <th>AVG FIXED/CALL DEP. (N)</th>
+                                    <th>INCOME-SELF-SOURCED/REACT.</th>
+                                    <th>INCOME LEGACY ACCT</th>
+                                </tr>
+
+                                @{
+                        XmlDocument xml = new XmlDocument();
+                        xml.LoadXml(Model.EntryModel.Audit);
+                        XmlNodeList xnList = xml.SelectNodes("/AuditHistory/Audit");
+                        var idx = 1;
+                        foreach (XmlNode xn in xnList) {
+                            <tr>
+                                <td>@idx</td>
+                                <td>@xn["approver"].InnerText</td>
+                                <td>@xn["stageprocessed"].InnerText</td>
+                                <td>@xn["totca"].InnerText</td>
+                                <td>@xn["totca_l"].InnerText</td>
+                                <td>@xn["totsa"].InnerText</td>
+                                <td>@xn["totsa_l"].InnerText</td>
+                                <td>@xn["totfx"].InnerText</td>
+                                <td>@xn["totrv"].InnerText</td>
+                                <td>@xn["totfd"].InnerText</td>
+                                <td>@xn["totinc"].InnerText</td>
+                                <td>@xn["totinc_l"].InnerText</td>
+                            </tr>
+                            idx++;
+                        }
+                                }
+                            </table>
+                        </div>
+                    }
+
+                }
+            </section>
+        </div>
+    </div>
+    <script src="@Url.Content("~/Scripts/jquery-numeric.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        var tform = document.forms[0];
+
+        $(".tgtvals").addClass("positive-integer");
+        $(".positive-integer").numeric({ decimal: false, negative: false }, function () { alert("Positive integers only"); this.value = ""; this.focus(); });
+        sumOfColumns();
+
+        function setPeriod(period) {
+            //alert($("#" + period + " option:selected").text())
+            $("#SetupAppPeriod").val($("#" + period + " option:selected").text());
+        };
+        $(document).on("blur", ".tgtvals", function () {
+            var tgt = $(this);
+            tgt.removeClass("positive-integer");
+            var RequestStageID = tform.RequestStageID.value.toLowerCase();
+            if (RequestStageID != "hr upload") {
+                var r = $.trim(tgt.val());
+                if (r == null || r == "") {
+                    //@ViewBag.ErrorMessage="Please provide a numeric value.";
+                        //showDialog("Error", "Please provide a numeric value.", 560);
+                        tgt.addClass('errorRow').val(0).focus();
+                        return false;
+                    } else {
+                        tgt.removeClass('errorRow');
+                        var k = tgt.val();
+                        var e = k;
+                        if (e.length > 1) {
+                            e.replace(/^[0]+/g, "")
+                        }
+                        if (e == "0" || parseInt(e, 10) == 0) {
+                            tgt.val(0);
+                            //return false
+                        }
+                        if (k.length > 1) {
+                            k = addCommas(k.replace(/^[0]+/g, ""));
+                            tgt.val(k);
+                        }
+                    }
+                }
+                sumOfColumns();
+            });
+
+            $(document).on("focus", ".tgtvals", function () {
+                var tgt = $(this);
+                tgt.addClass("positive-integer");
+                $(".positive-integer").numeric({ decimal: false, negative: false }, function () { this.value = "0"; this.focus(); });
+            });
+
+            $(".has-delete").not(":last").on("click", function (e) {
+                //alert($(this).parent());
+                if (tform.RequestStageID.value != 0 && tform.RequestStageID.value!=-1) {
+                    return false;
+                }
+                var staffID = $(this).parent().find('td:nth-child(3) input').val();
+                var staffName = $(this).parent().find('td:nth-child(2) input').val();
+                if (confirm("Delete this entry / " + staffName + "?")) {
+                    tform.StaffNumber.value = staffID;
+                    $("#DeleteStaff").trigger("click");
+                } else {
+                    tform.StaffNumber.value = "";
+                }
+            });
+            function getStaffProfile(staffnumber) {
+                //alert()
+                //    alert(staffnumber)
+                var StaffNumber = "";
+                var StaffName = "";
+                var StaffGrade = "";
+
+                $.ajax({
+                    type: "POST",
+                    //url: "../HRSetup/GetStaffProfile",
+                    url: '@Url.Action("GetStaffProfile", "HRSetup")',
+                    traditional: true,
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({ StaffNumber: staffnumber }),
+                    success: function (data) {
+                        //console.log(data)
+                        var StaffName = "";
+
+                        if (data[0] == undefined || data[0] == null) {
+                            StaffName = data.name;
+                            StaffNumber = data.employee_number;
+                            StaffGrade = data.grade_code;
+
+                            $("#in_StaffName").val("");
+                            $("#in_StaffNumber").val("");
+                            $("#in_StaffGrade").val("");
+
+                            $(".web-err").html(StaffNumber + "_" + StaffName);
+
+                        } else {
+                            StaffName = data[0].name;
+                            StaffNumber = data[0].employee_number;
+                            StaffGrade = data[0].grade_code;
+
+                            $("#in_StaffName").val(StaffName);
+                            $("#in_StaffNumber").val(StaffNumber);
+                            $("#in_StaffGrade").val(StaffGrade);
+
+                            $(".web-err").html("");
+                        }
+
+                    }, error: function (data) {
+                        //console.log(data)
+                    }
+                });
+            }
+            function addCommas(str) {
+                return (str + "").replace(/\b(\d+)((\.\d+)*)\b/g, function (a, b, c) {
+                    return (b.charAt(0) > 0 && !(c || ".").lastIndexOf(".") ? b.replace(/(\d)(?=(\d{3})+$)/g, "$1,") : b) + c;
+                });
+            }
+            function roundNumber(number) {
+                var newnumber = new Number(number + '').toFixed(parseInt(2));
+                return new String(parseFloat(newnumber));
+            }
+            function removeCommas(e) {
+                if (!e || e == "") { return false; }
+                while (e.indexOf(",") > -1) { e = e.replace(",", ""); }
+                return e;
+            }
+            function sumOfColumns() {
+                //alert()
+                var cabalsum = 0;
+                var cabal_lsum = 0;
+                var sabalsum = 0;
+                var sabal_lsum = 0;
+                var fxsum = 0;
+                var rvsum = 0;
+                var fdsum = 0;
+                var incsum = 0;
+                var inc_lsum = 0;
+
+                $(".cabal").each(function (index) { cabalsum += new Number(removeCommas($(this).val())); });
+                $(".cabal_l").each(function (index) { cabal_lsum += new Number(removeCommas($(this).val())); });
+                $(".sabal").each(function (index) { sabalsum += new Number(removeCommas($(this).val())); });
+                $(".sabal_l").each(function (index) { sabal_lsum += new Number(removeCommas($(this).val())); });
+                $(".fx").each(function (index) { fxsum += new Number(removeCommas($(this).val())); });
+                $(".rv").each(function (index) { rvsum += new Number(removeCommas($(this).val())); });
+                $(".fd").each(function (index) { fdsum += new Number(removeCommas($(this).val())); });
+                $(".inc").each(function (index) { incsum += new Number(removeCommas($(this).val())); });
+                $(".inc_l").each(function (index) { inc_lsum += new Number(removeCommas($(this).val())); });
+
+                if ($("tr#sum_row").length <= 0) {
+                    $(".inputTargetGridInitiate tbody").append("<tr id='sum_row'><td colspan='4' align='right'>TOTAL BRANCH /DEPT HEAD FIGURES</td>" +
+                                                        "<td class='cabalsum'></td>" +
+                                                        "<td class='cabal_lsum'></td>" +
+                                                        "<td class='sabalsum'></td>" +
+                                                        "<td class='sabal_lsum'></td>" +
+                                                        "<td class='fxsum'></td>" +
+                                                        "<td class='rvsum'></td>" +
+                                                        "<td class='fdsum'></td>" +
+                                                        "<td class='incsum'></td>" +
+                                                        "<td class='inc_lsum'></td>" +
+                                                        "</tr>");
+                }
+                $(".cabalsum").html(addCommas(cabalsum));
+                $(".cabal_lsum").html(addCommas(cabal_lsum));
+                $(".sabalsum").html(addCommas(sabalsum));
+                $(".sabal_lsum").html(addCommas(sabal_lsum));
+                $(".fxsum").html(addCommas(fxsum));
+                $(".rvsum").html(addCommas(rvsum));
+                $(".fdsum").html(addCommas(fdsum));
+                $(".incsum").html(addCommas(incsum));
+                $(".inc_lsum").html(addCommas(inc_lsum));
+            }
+    </script>
+</div>
+

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="TargetConnection">
+  <DataContextMoniker Name="/TargetConnectionDataContext" />
+  <nestedChildShapes>
+    <classShape Id="926e3e6d-bb4b-4713-813d-26818f10c12f" absoluteBounds="0.875, 0.5, 2, 4.4631168619791666">
+      <DataClassMoniker Name="/TargetConnectionDataContext/ZenithTgt_Demo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d2c7ad60-ab3f-4f0d-a289-205a1b410081" absoluteBounds="0.89000000000000012, 0.96, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

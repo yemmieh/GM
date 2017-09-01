@@ -1,0 +1,150 @@
+﻿@using MarketersTarget_MVC.Models
+@model MarketersTarget_MVC.Models.SuperBulkSetupModel
+
+@{
+    ViewBag.Title = "Branch Head Bulk Setup";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    WebGrid grid = new WebGrid(Model.SetupExcelModel, rowsPerPage: 50);
+}
+
+<h4>@ViewBag.Title</h4>
+
+<hr />
+
+<div class="stf_optionsContainer">
+    <div class="row">
+        <div class="col-md-12">
+
+            <section id="form">
+                @using (Html.BeginForm("BHBulkSetupForm", "HRSetup", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" })) {
+
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    @Html.HiddenFor( m => m.BHSingleSetupModel.InitiatorLoginName , new { Value = @User.Identity.Name } )
+                    @Html.HiddenFor( m => m.BHSingleSetupModel.SetupAppPeriod     , new { id = "SetupAppPeriod" }       )
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.BHSingleSetupModel.SelectedAppraisalPeriod, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(m => m.BHSingleSetupModel.SelectedAppraisalPeriod, Model.BHSingleSetupModel.AppraisalPeriod, "--- Select Appraisal Period ---", new { @class = "form-control", id = "AppraisalPeriod", onchange = "setPeriod(this.id)" })
+                            @Html.ValidationMessageFor(m => m.BHSingleSetupModel.SelectedAppraisalPeriod, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.BHBulkSetupFormModel.UploadedExcelFile, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.BHBulkSetupFormModel.UploadedExcelFile, new { @class = "form-control", type = "file", id = "UploadedExcelFile" })
+                            @Html.ValidationMessageFor(m => m.BHBulkSetupFormModel.UploadedExcelFile, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <span class='web-err'>@ViewBag.ErrorMessage</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10 col-md-offset-2">
+                            <input type="submit" value="Upload File" class="btn btn-default  col-md-1" name="action:Upload" />
+                            @if ( Model.SetupExcelModel.Count() > 0 ) {
+                                <input type="submit" value="Setup Target Intiators" class="btn btn-default col-md-offset-1 col-md-2" name="action:BulkSetup" />
+                            }
+                        </div>
+                    </div>
+
+                    @*<br /><br /><p>Opel</p>
+                    @Html.Raw(Model.BHBulkSetupFormModel.UploadedExcelFileTable)*@
+                    
+                    TempData[ "superBulkSetupModel" ] = Model;
+                                        
+                    if (Model.SetupExcelModel.Count() > 0) {
+                        
+                        ViewBag.HasGrid=true;
+                            
+                        @grid.GetHtml(
+                            tableStyle: "viewTable BHBulkSetupForm",
+                            fillEmptyRows: false,
+                            headerStyle: "viewTableHeader",
+                            footerStyle: "viewTableFooter",
+                            mode: WebGridPagerModes.All,
+                            firstText: "<< First",
+                            previousText: "< Prev",
+                            nextText: "Next >",
+                            lastText: "Last >>",
+
+                            columns: new[] {
+                                grid.Column("Id","S/No"),
+                                grid.Column("StaffName","Staff Name"),
+                                grid.Column("StaffNumber","Staff Number"  ),
+                                grid.Column("StaffBranch","Branch Name"),
+                                grid.Column("StaffBranchCode","Branch Code"),
+                                grid.Column("SetupAppPeriod","Appraisal Period"),
+                                grid.Column("StaffRole","Role")
+                            })
+                    } else {
+                        <p>Nothing to display</p>
+                        ViewBag.HasGrid = null;
+                    }
+                }
+            </section>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        function setPeriod(period) {
+            //alert($("#" + period + " option:selected").text())
+            $("#SetupAppPeriod").val($("#" + period + " option:selected").text());
+        };
+        /*function setBranch(branchname) {
+            //alert($("#" + branchname + " option:selected").text())
+            $("#SetupBranch").val($("#" + branchname + " option:selected").text());
+        };*/
+        /*function getStaffProfile(staffnumber) {
+
+            var StaffNumber = "";
+            var StaffName   = "";
+            var StaffGrade  = "";
+
+            $.ajax({
+                type: "POST",
+                url: "/HRSetup/GetStaffProfile",
+                traditional: true,
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ StaffNumber: staffnumber }),
+                success: function (data) {
+
+                    var StaffName="";
+
+                    if (data[0]==undefined || data[0]==null) {
+                        StaffName   = data.name;
+                        StaffNumber = data.employee_number;
+                        StaffGrade = data.grade_code;
+
+                        $("#StaffName").val("");
+                        $("#StaffNumber").val("");
+                        $("#StaffGrade").val("");
+
+                        $(".web-err").html(StaffNumber + "_" + StaffName);
+
+                    } else {
+                        StaffName   = data[0].name;
+                        StaffNumber = data[0].employee_number;
+                        StaffGrade = data[0].grade_code;
+
+                        $("#StaffName").val(StaffName);
+                        $("#StaffNumber").val(StaffNumber);
+                        $("#StaffGrade").val(StaffGrade);
+
+                        $(".web-err").html("");
+                    }
+
+                }, error: function (data) {
+                    //console.log(data)
+                }
+            });
+        }*/
+    </script>
+</div>

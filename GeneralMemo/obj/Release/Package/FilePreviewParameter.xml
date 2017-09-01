@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="Default Web Site/MarketersTarget_MVC" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\okechukwu\.agufuobi\\documents\\visual\ studio\ 2013\\Projects\\MarketersTarget_MVC\\MarketersTarget_MVC\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\okechukwu\.agufuobi\\documents\\visual\ studio\ 2013\\Projects\\MarketersTarget_MVC\\MarketersTarget_MVC\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="AppraisalDbConnectionString-Web.config Connection String" description="" value="Data Source=172.29.12.131;Initial Catalog=AppraisalDb;User ID=sa;Password=password1234" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\okechukwu\.agufuobi\\documents\\visual\ studio\ 2013\\Projects\\MarketersTarget_MVC\\MarketersTarget_MVC\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AppraisalDbConnectionString']/@connectionString" />
+  </parameter>
+  <parameter name="BranchHeadStaffProfile-Web.config Connection String" description="" value="Data Source=172.29.12.174;Initial Catalog=Zenith;User ID=infotech;Password=infotech" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\okechukwu\.agufuobi\\documents\\visual\ studio\ 2013\\Projects\\MarketersTarget_MVC\\MarketersTarget_MVC\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BranchHeadStaffProfile']/@connectionString" />
+  </parameter>
+  <parameter name="ZenithConnectionString-Web.config Connection String" description="" value="Data Source=172.29.12.174;Initial Catalog=Zenith;User ID=infotech;Password=infotech" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\okechukwu\.agufuobi\\documents\\visual\ studio\ 2013\\Projects\\MarketersTarget_MVC\\MarketersTarget_MVC\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ZenithConnectionString']/@connectionString" />
+  </parameter>
+  <parameter name="ZenithTgt_DemoConnectionString-Web.config Connection String" description="" value="Data Source=172.29.12.131;Initial Catalog=ZenithTgt_Demo;User ID=sa;Password=password1234" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\okechukwu\.agufuobi\\documents\\visual\ studio\ 2013\\Projects\\MarketersTarget_MVC\\MarketersTarget_MVC\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ZenithTgt_DemoConnectionString']/@connectionString" />
+  </parameter>
+</parameters>

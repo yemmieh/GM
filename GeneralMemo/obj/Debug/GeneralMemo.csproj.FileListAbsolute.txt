@@ -1,0 +1,7 @@
+C:\Users\okechukwu.agufuobi\Desktop\GenMemo\GeneralMemo_Project\GeneralMemo\bin\ApplicationInsights.config
+C:\Users\okechukwu.agufuobi\Desktop\GenMemo\GeneralMemo_Project\GeneralMemo\obj\Debug\GeneralMemo.csprojResolveAssemblyReference.cache
+C:\Users\okechukwu.agufuobi\Desktop\GenMemo\GeneralMemo_Project\GeneralMemo\bin\GeneralMemo.dll.config
+C:\Users\okechukwu.agufuobi\Desktop\GenMemo\GeneralMemo_Project\GeneralMemo\bin\GeneralMemo.dll
+C:\Users\okechukwu.agufuobi\Desktop\GenMemo\GeneralMemo_Project\GeneralMemo\bin\GeneralMemo.pdb
+C:\Users\okechukwu.agufuobi\Desktop\GenMemo\GeneralMemo_Project\GeneralMemo\obj\Debug\GeneralMemo.dll
+C:\Users\okechukwu.agufuobi\Desktop\GenMemo\GeneralMemo_Project\GeneralMemo\obj\Debug\GeneralMemo.pdb

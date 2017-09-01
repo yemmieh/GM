@@ -1,0 +1,69 @@
+﻿@model IEnumerable<GeneralMemo.Models.AppraisalApproverModel>
+@{
+    ViewBag.Title = "View Appraisal Approvers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    WebGrid grid = new WebGrid(Model, rowsPerPage: 1000);
+}
+
+<h4>@ViewBag.Title</h4>
+
+<hr />
+
+<div class="stf_optionsContainer">
+    <div class="row">
+        <div class="col-md-12">
+            <section id="form">
+                @using (Html.BeginForm("FilterApprovers", "OrgStructure", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" })) {
+
+                    <div class="form-group">
+                        <div class="col-md-2 ">
+                            @Html.Label("Search Text", new { @class = "control-label" })
+                            <div class="">
+                                @Html.TextBox("FilterBy", "", new { @class = "form-control ", type = "text", id = "FilterBy" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("*", new { @class = "blank-text" })
+                            <div>
+                                <input name="ReportAction" type="submit" value="Search" class="btn btn-default  col-md-1 col-md-offset-0" />
+                            </div>
+                        </div>
+                    </div>
+
+                    if (Model != null && Model.Count() > 0) {
+
+                        ViewBag.HasGrid = true;
+                        int rowNum = 0;
+
+                        @grid.GetHtml(
+            tableStyle: "viewTable",
+            fillEmptyRows: false,
+            headerStyle: "viewTableHeader",
+            mode: WebGridPagerModes.All,
+            firstText: "<< First",
+            previousText: "< Prev",
+            nextText: "Next >",
+            lastText: "Last >>",
+            numericLinksCount: 50,
+            columns: new[] {
+                grid.Column("S/NO",format: item => rowNum = rowNum + 1),
+                grid.Column("StaffName","Name"),
+                grid.Column("StaffNumber","Staff ID"),
+                grid.Column("RoleTitle","Role"  ),
+                grid.Column("UnitTitle","Unit"  ),
+                grid.Column("DeptTitle","Dept/Branch"),
+                grid.Column("GroupTitle","Group/Zone"),
+                grid.Column("SuperGroupTitle","Super Group/Super Zone"),
+                grid.Column("Action",format:(item) => Html.ActionLink("Edit", "ApproverSetupEdit", "OrgStructure",new { EntryKey=@item.EntryKey,Func="Edit"},null)),
+                grid.Column("Delete",format:(item) => Html.ActionLink("Delete", "ApproverSetupEdit", "OrgStructure",new { EntryKey=@item.EntryKey,Func="Delete"},null))
+            })
+                    }
+                    else {
+                        <p>Nothing to displaySSS</p>
+                    }
+                }
+            </section>
+        </div>
+    </div>
+</div>

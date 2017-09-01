@@ -1,0 +1,172 @@
+﻿@using GeneralMemo.Models
+@model GeneralMemo.Models.BHSingleSetupModel
+
+@{
+    ViewBag.Title = "Branch Head Single Setup";
+    ViewBag.LoggedInUser = @User.Identity.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>@ViewBag.Title</h4>
+
+<hr />
+
+<div class="stf_optionsContainer">
+    <div class="row">
+        <div class="col-md-12">
+
+            <section id="form">
+                @using (Html.BeginForm("BHSingleSetupForm", "HRSetup", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" })) {
+
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    
+                    @Html.HiddenFor(m => m.InitiatorLoginName, new { Value = @User.Identity.Name })
+                    @Html.HiddenFor(m => m.SetupAppPeriod, new { id = "SetupAppPeriod" })
+                    @Html.HiddenFor(m => m.SetupBranch, new { id = "SetupBranch" })
+                    @Html.HiddenFor(m => m.SetupDept, new { id = "SetupDept" })
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.SelectedAppraisalPeriod, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(m => m.SelectedAppraisalPeriod, Model.AppraisalPeriod, "--- Select Appraisal Period ---", new { @class = "form-control", id = "AppraisalPeriod" , onchange = "setPeriod(this.id)"})
+                            @Html.ValidationMessageFor(m => m.SelectedAppraisalPeriod, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.SelectedBranch, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(m => m.SelectedBranch, Model.BranchName, "--- Select A Branch ---", new { @class = "form-control", id = "BranchName", onchange = "setBranch(this.id,this.value)" })
+                            @Html.ValidationMessageFor(m => m.SelectedBranch, "" , new { @class = "text-danger" })
+                        </div>
+
+                        @Html.LabelFor(m => m.HODeptCode, new { @class = "col-md-1 control-label dept-dd" })
+                        <div class="col-md-3 dept-dd ">
+                            @Html.DropDownListFor(m => m.HODeptCode, Model.HODeptName, "--- Select A Dept ---", new { @class = "form-control", id = "HODeptName", onchange = "setDept(this.id)" })
+                            @Html.ValidationMessageFor(m => m.HODeptCode, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.StaffNumber, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.StaffNumber, new { @class = "form-control", onblur = "getStaffProfileSingle(this.value)", id = "StaffNumber" })
+                            @Html.ValidationMessageFor(m => m.StaffNumber, "", new { @class = "text-danger"})
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.StaffName, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.StaffName, new { @class = "form-control", @readonly = "readonly", id = "StaffName" })
+                            @Html.ValidationMessageFor(m => m.StaffName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.StaffGrade, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.StaffGrade, new { @class = "form-control", @readonly = "readonly", id = "StaffGrade" })
+                            @Html.ValidationMessageFor(m => m.StaffGrade, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Comments, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.Comments, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Comments, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <span class='web-err'>@ViewBag.ErrorMessage</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-9">
+                            <input type="submit" value="Setup Initiator" class="btn btn-default" />
+                        </div>
+                    </div>
+                }
+            </section>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        function setPeriod(period) {
+            //alert($("#" + period + " option:selected").text())
+            $("#SetupAppPeriod").val($("#" + period + " option:selected").text());
+        };
+        function setBranch(branchname,val) {
+            $("#SetupBranch").val($("#" + branchname + " option:selected").text());
+            if (val == "001") {
+                $("#HODeptName option:eq(1)").prop("disabled", true);
+                $("#HODeptName option:gt(1)").prop("disabled", false);
+            } else {
+                $("#HODeptName option:eq(1)").prop("disabled", false);
+                $("#HODeptName option:gt(1)").prop("disabled", true);
+            }
+
+            $("#HODeptName").val([]);
+
+        };
+        function setDept(deptname) {
+            //alert($("#" + branchname + " option:selected").text())
+            $("#SetupDept").val($("#" + deptname + " option:selected").text());
+        };
+        //alert()
+        function getStaffProfileSingle(staffnumber) {
+
+            //alert(staffnumber);
+
+            var StaffNumber = "";
+            var StaffName   = "";
+            var StaffGrade  = "";
+
+            $.ajax({
+                type: "POST",
+                //url: "../HRSetup/GetStaffProfile",
+                url: '@Url.Action("GetStaffProfile", "HRSetup")',
+                traditional: true,
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ StaffNumber: staffnumber }),
+                success: function (data) {
+
+                    var StaffName="";
+
+                    if (data[0]==undefined || data[0]==null) {
+                        StaffName   = data.name;
+                        StaffNumber = data.employee_number;
+                        StaffGrade = data.grade_code;
+
+                        $("#StaffName").val("");
+                        $("#StaffNumber").val("");
+                        $("#StaffGrade").val("");
+
+                        $(".web-err").html(StaffNumber + "_" + StaffName);
+
+                    } else {
+                        StaffName   = data[0].name;
+                        StaffNumber = data[0].employee_number;
+                        StaffGrade = data[0].grade_code;
+
+                        $("#StaffName").val(StaffName);
+                        $("#StaffNumber").val(StaffNumber);
+                        $("#StaffGrade").val(StaffGrade);
+
+                        $(".web-err").html("");
+                    }
+
+                }, error: function (data) {
+                    //console.log(data)
+                }
+            });
+        }
+    </script>
+</div>
+

@@ -1,0 +1,147 @@
+﻿@model GeneralMemo.Models.ReportModel
+@{
+    ViewBag.Title = "Reports";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.User = "Welcome " + Request.LogonUserIdentity.Name.Substring(Request.LogonUserIdentity.Name.LastIndexOf(@"\") + 1) + "!";
+    ViewBag.InitiatorName = Request.LogonUserIdentity.Name.Substring(Request.LogonUserIdentity.Name.LastIndexOf(@"\") + 1);
+    ViewBag.InitiatorNumber = "";
+    WebGrid grid = new WebGrid(Model.EntriesModel, canPage: false);
+}
+@* The line below is crucial. It is used for showing alerts on submission/authentiation errors
+    Please do not delete
+*@
+@Html.Raw(ViewBag.PostBackMessage)
+
+<h4>@ViewBag.Title</h4>
+
+<hr />
+
+<div class="stf_optionsContainer">
+    <div class="row">
+        <div class="col-md-12">
+            <section id="form">
+                @using (Html.BeginForm("Filter", "Reports", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" })) {
+
+                    @Html.HiddenFor(m => m.QueryFieldTitle, new { id = "QueryFieldTitle" })
+                    @Html.HiddenFor(m => m.ReportMode, new { id = "ReportMode" })
+
+                    <div class="form-group">
+                        <div class="col-md-2 ">
+                            @Html.LabelFor(m => m.QueryText, new { @class = "control-label" })
+                            <div class="">
+                                @Html.TextBoxFor(m => m.QueryText, Model.QueryText,new { @class = "form-control ", type = "text", id = "QueryText" })
+                                @Html.ValidationMessageFor(m => m.QueryText, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-2 col-md-offset-0">
+                            @Html.LabelFor(m => m.QueryFieldID, new { @class = "control-label" })
+                            <div class="">
+                                @Html.DropDownListFor(m => m.QueryFieldID, Model.QueryField, "--- Any Field ---", new { @class = "form-control", id = "QueryFieldID", onchange = "setField(this.id)" })
+                                @Html.ValidationMessageFor(m => m.QueryFieldID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("*", new { @class = "blank-text" })
+                            <div>
+                                <input name="ReportAction" type="submit" value="Search" class="btn btn-default  col-md-1 col-md-offset-0" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    if (Model.EntriesModel != null && Model.EntriesModel.Count() > 0) {
+                        ViewBag.HasGrid = true;
+                        int rowNum = 0;
+                        @grid.GetHtml(
+                            tableStyle: "viewTable",
+                            fillEmptyRows: false,
+                            headerStyle: "viewTableHeader",
+                            mode: WebGridPagerModes.All,
+                            firstText: "<< First",
+                            previousText: "< Prev",
+                            nextText: "Next >",
+                            lastText: "Last >>",
+
+                            columns: new[] {
+                                grid.Column("S/No",format: item => rowNum = rowNum + 1),
+                                grid.Column("StaffName","Initiator Name"),
+                                grid.Column("Branch Name",format:(item) => Html.ActionLink((string) item.Branch, "OpenTargetEntry", "MyEntries",new { WorkflowID = @item.WorkflowID,RequestStageId=@item.RequestStageId },null)),
+                                grid.Column("DeptName","Unit"  ),
+                                grid.Column("AppraisalPeriodName","Appraisal Period"  ),
+                                grid.Column("RequestStage","Request Stage"),
+                                grid.Column("UploadStatus","Upload Status"),
+                                grid.Column("DateSubmitted","Date Submitted"),
+                                grid.Column("RequestStageId",
+                                            "Approvers",
+                                            format: @<a href="javascript:getApprovers('@item.WorkflowID','@item.RequestStageId');"><span class="glyphicon glyphicon-user"></span></a>,
+                                            style:"text-center"
+                                            ),
+                                grid.Column("WorkflowID",
+                                            "Reroute?",
+                                            format: @<a href="javascript:doReroute('@item.WorkflowID','@item.RequestStageId');"><span class="glyphicon glyphicon-random"></span></a>,
+                                            style:"text-center"
+                                            )
+                           })
+                    }
+                    else {
+                        <p>Nothing to display</p>
+                    }
+                }
+            </section>
+        </div>
+    </div>
+</div>
+<script language="javascript" type="text/javascript">
+
+    function setField(fieldname) {
+        $("#QueryFieldTitle").val($("#" + fieldname + " option:selected").val());
+    };
+
+    $('#FilterBy').change(function (e) {
+        var FilterBy = $(this);
+        if ($.trim(FilterBy.val()) == "" || FilterBy.val().length <= 3) {
+            return false;
+        }
+        e.preventDefault();
+        var url = '@Url.Action("Filter")';
+        $.get(url, { department: $(this).val() }, function (result) {
+            debugger;
+            $('#EmployeeViewGrid').html(result);
+        });
+    });
+
+    function getApprovers(workflowid, requeststageid) {
+        console.log(workflowid.toString());
+        console.log(requeststageid.toString());
+        $.ajax({
+            type: "POST",
+            //url: "../MyEntries/GetApprovers",
+            url: '@Url.Action("GetApprovers", "MyEntries")',
+            traditional: true,
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ WorkflowID: workflowid, RequestStageID: requeststageid }),
+            success: function (data) {
+                //console.log(data)
+                //alert(data);
+                if (data != undefined || data[0] != null) {
+                    //alert(data.name);
+                    if (data.employee_number == "" || data.employee_number == "Error") {
+                        alert(data.name);
+                    } else {
+                        data = "APPROVERS:\n\n" + data.toString().replace(/,/g, "\n")
+                        alert(data);
+                    }
+                }
+            }, error: function (data) {
+                //console.log(data)
+            }
+        });
+    }
+
+    function doReroute(workflowid, requeststageid) {
+        location.href = '@Url.Action("Reroute", "Reroute")?WorkflowID=' + workflowid+'&ReportMode=@Model.ReportMode';
+    }
+
+</script>

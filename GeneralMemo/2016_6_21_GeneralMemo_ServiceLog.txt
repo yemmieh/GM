@@ -1,0 +1,222 @@
+21/06/2016 7:35:28 : Entered GetStaffProfile
+21/06/2016 7:35:29 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+21/06/2016 7:35:29 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+21/06/2016 7:35:29 : Entered GetStaffProfile
+21/06/2016 7:35:29 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+21/06/2016 7:35:29 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+21/06/2016 7:35:29 : Entered GetStaffProfile
+21/06/2016 7:35:29 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+21/06/2016 7:35:29 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+21/06/2016 7:35:29 : Entered GetStaffProfile
+21/06/2016 7:35:29 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+21/06/2016 7:35:29 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+21/06/2016 7:35:29 : Entered GetStaffProfile
+21/06/2016 7:35:29 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+21/06/2016 7:35:29 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+21/06/2016 7:35:29 : Entered GetStaffProfile
+21/06/2016 7:35:29 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+21/06/2016 7:35:29 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+21/06/2016 7:35:29 : Entered GetStaffProfile
+21/06/2016 7:35:30 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+21/06/2016 7:35:30 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+21/06/2016 7:35:30 : Entered GetStaffProfile
+21/06/2016 7:35:30 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+21/06/2016 7:35:30 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+21/06/2016 7:35:32 : Entered GetStaffProfile
+21/06/2016 7:35:32 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+21/06/2016 7:35:32 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+21/06/2016 7:35:32 : Entered GetStaffProfile
+21/06/2016 7:35:32 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+21/06/2016 7:35:32 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+21/06/2016 7:35:32 : Entered GetStaffProfile
+21/06/2016 7:35:32 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+21/06/2016 7:35:32 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+21/06/2016 7:35:32 : Entered GetStaffProfile
+21/06/2016 7:35:32 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+21/06/2016 7:35:32 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+21/06/2016 7:35:32 : Entered GetStaffProfile
+21/06/2016 7:35:32 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+21/06/2016 7:35:32 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+21/06/2016 7:35:32 : Entered GetStaffProfile
+21/06/2016 7:35:32 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+21/06/2016 7:35:32 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+21/06/2016 7:35:32 : Entered GetStaffProfile
+21/06/2016 7:35:32 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+21/06/2016 7:35:32 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+21/06/2016 7:35:32 : Entered GetStaffProfile
+21/06/2016 7:35:32 : SearchUserByUserName : Exception!!! The (&((&(objectCategory=Person)(objectClass=User)))(samaccountname=)) search filter is invalid. / 
+21/06/2016 7:35:33 : GetStaffInformation : Exception!!! / Object reference not set to an instance of an object.
+21/06/2016 7:36:26 : about to PostBackMessage : Exception!!! / Posted back
+21/06/2016 7:36:26 : After post back : Exception!!! / Posted back
+21/06/2016 7:36:26 : Entered GetStaffProfile
+21/06/2016 7:36:26 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:36:26 : get Awaiting : about firing getMyPendingTargetWorkflows!!! / 
+21/06/2016 7:36:26 :  getMyPendingMemoWorkflows :inside getMyPendingMemoWorkflows!!! / Okechukwu.Agufuobi
+21/06/2016 7:36:27 : get Entry List Count : Exception!!! / 0
+21/06/2016 7:36:27 : AwaitingMyApproval : Exception!!! / Sequence contains no elements
+21/06/2016 7:36:27 : Entered GetStaffProfile
+21/06/2016 7:36:27 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:36:27 : Entered GetStaffProfile
+21/06/2016 7:36:27 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:36:27 : Entered GetStaffProfile
+21/06/2016 7:36:27 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:36:27 : Entered GetStaffProfile
+21/06/2016 7:36:28 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:36:28 : Entered GetStaffProfile
+21/06/2016 7:36:28 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:36:28 : Entered GetStaffProfile
+21/06/2016 7:36:28 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:36:28 : Entered GetStaffProfile
+21/06/2016 7:36:28 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:36:28 : Entered GetStaffProfile
+21/06/2016 7:36:28 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:36:28 : Entered GetStaffProfile
+21/06/2016 7:36:28 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:39:58 : about to PostBackMessage : Exception!!! / Posted back
+21/06/2016 7:39:58 : After post back : Exception!!! / Posted back
+21/06/2016 7:39:58 : Entered GetStaffProfile
+21/06/2016 7:39:58 : GetStaffInformation : User found!!! / Oyeyemi.Oyetoro
+21/06/2016 7:39:58 : get Awaiting : about firing getMyPendingTargetWorkflows!!! / 
+21/06/2016 7:39:58 :  getMyPendingMemoWorkflows :inside getMyPendingMemoWorkflows!!! / Oyeyemi.Oyetoro
+21/06/2016 7:39:58 : get Entry List Count : Exception!!! / 1
+21/06/2016 7:39:58 : Entry List : Staff Name!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:01 : Entered GetStaffProfile
+21/06/2016 7:40:01 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:01 : Entered GetStaffProfile
+21/06/2016 7:40:01 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:01 : Entered GetStaffProfile
+21/06/2016 7:40:01 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:01 : Entered GetStaffProfile
+21/06/2016 7:40:01 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:01 : Entered GetStaffProfile
+21/06/2016 7:40:01 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:01 : Entered GetStaffProfile
+21/06/2016 7:40:01 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:01 : Entered GetStaffProfile
+21/06/2016 7:40:01 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:01 : Entered GetStaffProfile
+21/06/2016 7:40:01 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:01 : Entered GetStaffProfile
+21/06/2016 7:40:01 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:05 : about to PostBackMessage : Exception!!! / Posted back
+21/06/2016 7:40:05 : After post back : Exception!!! / Posted back
+21/06/2016 7:40:05 : Entered GetStaffProfile
+21/06/2016 7:40:05 : GetStaffInformation : User found!!! / Oyeyemi.Oyetoro
+21/06/2016 7:40:05 : get Awaiting : about firing getMyPendingTargetWorkflows!!! / 
+21/06/2016 7:40:05 :  getMyPendingMemoWorkflows :inside getMyPendingMemoWorkflows!!! / Oyeyemi.Oyetoro
+21/06/2016 7:40:05 : get Entry List Count : Exception!!! / 1
+21/06/2016 7:40:05 : Entry List : Staff Name!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:05 : Entered GetStaffProfile
+21/06/2016 7:40:05 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:05 : Entered GetStaffProfile
+21/06/2016 7:40:05 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:05 : Entered GetStaffProfile
+21/06/2016 7:40:05 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:05 : Entered GetStaffProfile
+21/06/2016 7:40:05 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:05 : Entered GetStaffProfile
+21/06/2016 7:40:05 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:05 : Entered GetStaffProfile
+21/06/2016 7:40:05 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:05 : Entered GetStaffProfile
+21/06/2016 7:40:05 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:05 : Entered GetStaffProfile
+21/06/2016 7:40:05 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:05 : Entered GetStaffProfile
+21/06/2016 7:40:05 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:07 : about to PostBackMessage : Exception!!! / Posted back
+21/06/2016 7:40:07 : After post back : Exception!!! / Posted back
+21/06/2016 7:40:07 : Entered GetStaffProfile
+21/06/2016 7:40:07 : GetStaffInformation : User found!!! / Oyeyemi.Oyetoro
+21/06/2016 7:40:07 : get Awaiting : about firing getMyPendingTargetWorkflows!!! / 
+21/06/2016 7:40:07 :  getMyPendingMemoWorkflows :inside getMyPendingMemoWorkflows!!! / Oyeyemi.Oyetoro
+21/06/2016 7:40:07 : get Entry List Count : Exception!!! / 1
+21/06/2016 7:40:07 : Entry List : Staff Name!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:07 : Entered GetStaffProfile
+21/06/2016 7:40:07 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:07 : Entered GetStaffProfile
+21/06/2016 7:40:07 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:07 : Entered GetStaffProfile
+21/06/2016 7:40:07 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:07 : Entered GetStaffProfile
+21/06/2016 7:40:07 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:07 : Entered GetStaffProfile
+21/06/2016 7:40:07 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:07 : Entered GetStaffProfile
+21/06/2016 7:40:07 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:07 : Entered GetStaffProfile
+21/06/2016 7:40:07 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:07 : Entered GetStaffProfile
+21/06/2016 7:40:07 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:07 : Entered GetStaffProfile
+21/06/2016 7:40:07 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:47 : Entered GetStaffProfile
+21/06/2016 7:40:47 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:47 : Entered GetStaffProfile
+21/06/2016 7:40:47 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:49 : Entered GetStaffProfile
+21/06/2016 7:40:49 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:49 : Entered GetStaffProfile
+21/06/2016 7:40:49 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:49 : Entered GetStaffProfile
+21/06/2016 7:40:49 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:49 : Entered GetStaffProfile
+21/06/2016 7:40:49 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:49 : Entered GetStaffProfile
+21/06/2016 7:40:49 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:49 : Entered GetStaffProfile
+21/06/2016 7:40:49 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:49 : Entered GetStaffProfile
+21/06/2016 7:40:49 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:49 : Entered GetStaffProfile
+21/06/2016 7:40:49 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:40:49 : Entered GetStaffProfile
+21/06/2016 7:40:49 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:41:16 : about to PostBackMessage : Exception!!! / Posted back
+21/06/2016 7:41:16 : After post back : Exception!!! / Posted back
+21/06/2016 7:41:16 : Entered GetStaffProfile
+21/06/2016 7:41:16 : GetStaffInformation : User found!!! / Oyeyemi.Oyetoro
+21/06/2016 7:41:16 : get Awaiting : about firing getMyPendingTargetWorkflows!!! / 
+21/06/2016 7:41:21 :  getMyPendingMemoWorkflows :inside getMyPendingMemoWorkflows!!! / Oyeyemi.Oyetoro
+21/06/2016 7:41:21 : get Entry List Count : Exception!!! / 1
+21/06/2016 7:41:22 : Entry List : Staff Name!!! / Okechukwu.Agufuobi
+21/06/2016 7:41:26 : Entered GetStaffProfile
+21/06/2016 7:41:26 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:41:26 : Entered GetStaffProfile
+21/06/2016 7:41:26 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:41:26 : Entered GetStaffProfile
+21/06/2016 7:41:26 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:41:27 : Entered GetStaffProfile
+21/06/2016 7:41:27 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:41:27 : Entered GetStaffProfile
+21/06/2016 7:41:27 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:41:27 : Entered GetStaffProfile
+21/06/2016 7:41:27 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:41:27 : Entered GetStaffProfile
+21/06/2016 7:41:27 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:41:27 : Entered GetStaffProfile
+21/06/2016 7:41:27 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:41:27 : Entered GetStaffProfile
+21/06/2016 7:41:27 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:42:15 : Entered GetStaffProfile
+21/06/2016 7:42:15 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:42:15 : Entered GetStaffProfile
+21/06/2016 7:42:15 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:42:16 : Entered GetStaffProfile
+21/06/2016 7:42:16 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:42:16 : Entered GetStaffProfile
+21/06/2016 7:42:16 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:42:16 : Entered GetStaffProfile
+21/06/2016 7:42:16 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:42:16 : Entered GetStaffProfile
+21/06/2016 7:42:16 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:42:16 : Entered GetStaffProfile
+21/06/2016 7:42:16 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:42:16 : Entered GetStaffProfile
+21/06/2016 7:42:16 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:42:16 : Entered GetStaffProfile
+21/06/2016 7:42:16 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:42:16 : Entered GetStaffProfile
+21/06/2016 7:42:16 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
+21/06/2016 7:42:16 : Entered GetStaffProfile
+21/06/2016 7:42:16 : GetStaffInformation : User found!!! / Okechukwu.Agufuobi
